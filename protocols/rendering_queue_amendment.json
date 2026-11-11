@@ -1,0 +1,9 @@
+{
+  "scope": "Operational execution amendment before efficacy analysis",
+  "client_questions_per_replica_initial": 8,
+  "client_questions_per_replica_resumed": 32,
+  "vllm_max_num_seqs_unchanged": 8,
+  "reason": "Idle engines with insufficient queued requests; improve request supply across cache/file I/O waits.",
+  "preserved": "All persisted successful responses, question-level files, prompts, models, decoding, replica assignments and population remain unchanged. Only unfinished requests are generated; no outcome inspection or selection.",
+  "interpretation": "Batch scheduling may vary, as already acknowledged for these zero-temperature executions. Original confirmation remains untouched."
+}

@@ -1,6 +1,6 @@
 {
   "release_date": "2026-11-11",
-  "scope": "Empirical study: preserved original confirmation plus explicitly post hoc follow-up and native-input diagnostics; no benchmark/corpus/model redistribution",
+  "scope": "Empirical study: preserved confirmation and first follow-up, plus post hoc larger-reader and joint compact-rendering experiments; no benchmark/corpus/model redistribution",
   "files": {
     ".gitignore": {
       "sha256": "862263fa1f46c20f0d1e4dac5ffcc75abd55c08211b2c3864c5f8764b9d87793",
@@ -11,16 +11,16 @@
       "bytes": 449
     },
     "README.md": {
-      "sha256": "54bb2148933032f3096d321b4a4ea2a55c48a54177d9fe24feb07011fb659276",
-      "bytes": 13176
+      "sha256": "63a87169071d393cfd18b8bcffb95b5272563d34d26b90d9dc466355a4a9ee54",
+      "bytes": 18274
     },
     "THIRD_PARTY.md": {
       "sha256": "85527c71676712058b09194adb63d9e6ad7fbc48b3e18e455031a4e5fc4bc9cd",
       "bytes": 1588
     },
     "code/build_inputs.py": {
-      "sha256": "ddc9446fe1a7dc02be0193d30af4c53b40fc3272ff9ca76465222a4b0c92b010",
-      "bytes": 2743
+      "sha256": "08c71173c86324194db644369a2b175e1507315048a2093b7e8995ad242e04de",
+      "bytes": 2801
     },
     "code/compressor.py": {
       "sha256": "bfbbb18f7bbe92a21c60d376fddf8f7a5b614e711e5214fc05e5a402e84ecb07",
@@ -51,8 +51,8 @@
       "bytes": 1840
     },
     "code/reader.py": {
-      "sha256": "db1c687f8ff4b7c3a44acdfb25ce833ba4ca130ac282eb00cedccc3ea9d7348b",
-      "bytes": 1544
+      "sha256": "73b77a42a5b5424c413c3556be1161d97b510d9a8a02c10bd02c1e089c7e623d",
+      "bytes": 1543
     },
     "code/recompute.py": {
       "sha256": "a279180dfd5e81f3b5f648dab79e833cf69c9fba0ec251bcfb7991a339f12296",
@@ -66,9 +66,17 @@
       "sha256": "3ed760240b492f197c19054464d93707213ac7549169359371bea0a107bb1423",
       "bytes": 3470
     },
+    "code/recompute_rendering.py": {
+      "sha256": "d5430f0f57fb312ecb4308b6592b0b69c80e480fe02abebdc0cb6ac92df89add",
+      "bytes": 4335
+    },
     "code/recompute_score_vs_seed.py": {
       "sha256": "22ad5827ac5e7fe0a5a29b0d25f6b7e10821a245b80e3b0352005eb821c92045",
       "bytes": 1851
+    },
+    "code/rendering_inputs.py": {
+      "sha256": "30c032aaaee0a0f2af42aea1f3396773dfa5edc5011bf85bcf9ce09e8cb14c3e",
+      "bytes": 4319
     },
     "code/verify_scores.py": {
       "sha256": "675f0f0a40a94d63ed6eb64f56f1031278f6aeb29828fa49a87050d59cc35cd9",
@@ -282,6 +290,54 @@
       "sha256": "f2d3c2d99e5605f2738fee05d960c666fd0772416f4be07c5881ea36ffe05921",
       "bytes": 1847
     },
+    "data/rendering_dataset_scores.csv": {
+      "sha256": "bc45f36841589304a30d7be6cad4ffcf3e2015f110538d952af3ddf26bb8c567",
+      "bytes": 13697
+    },
+    "data/rendering_effects.csv": {
+      "sha256": "64cfffc87d0bcfac08e21600a7fbfb32cb36b80de9e571c56f706be2aa0785a0",
+      "bytes": 212372
+    },
+    "data/rendering_execution_change_counts.csv": {
+      "sha256": "10fadfeb545acb9eaef235e1bc7e15de55a7509d3a5efb8312079d386be00813",
+      "bytes": 572
+    },
+    "data/rendering_execution_changes.csv.gz": {
+      "sha256": "a547a2ab2652a501e4bd17f405bd31980ba6c13b151824f88ffca687d62fb4e3",
+      "bytes": 391853
+    },
+    "data/rendering_input_diagnostic_rows.csv.gz": {
+      "sha256": "591e0c57ba7b6766cd71e42427a3da7d9ac1c196e587af5304a0a889efd5d5af",
+      "bytes": 3582129
+    },
+    "data/rendering_input_diagnostics_dataset.csv": {
+      "sha256": "4b9cf0e3f2528c945a1a60659bdcff8055b1c07d2c2006213fdd1f10d60e67ea",
+      "bytes": 34604
+    },
+    "data/rendering_input_diagnostics_definition.json": {
+      "sha256": "173602eb94b494f296790e6586334491ac91e5a5de1332b03f6fabbde5785b52",
+      "bytes": 928
+    },
+    "data/rendering_input_diagnostics_macro.csv": {
+      "sha256": "ad797ef756fc45d62d8ee0821a78b6517e09c2e7ae3114a7c74466306b2f94df",
+      "bytes": 12981
+    },
+    "data/rendering_input_metadata.jsonl.gz": {
+      "sha256": "785e66ea0b29204b9b640b959016ccef5be1b31d3395eac565cd32c87a46716f",
+      "bytes": 10987464
+    },
+    "data/rendering_predictions.jsonl.gz": {
+      "sha256": "a9274812541ee80862e763bad612fe808f0d3e70478d852c32335b1acee8db29",
+      "bytes": 3665685
+    },
+    "data/rendering_scores.csv": {
+      "sha256": "b3774e2a9ff2ea6efe9d495e7a27dc28b0cc0c3c5538da1e2540b3e3bf3b0ba3",
+      "bytes": 4681
+    },
+    "data/rendering_summary.json": {
+      "sha256": "0a0fad05f0c1085897c8f88c9a51eedfef14aa03810a527226b96f32d18d5581",
+      "bytes": 631685
+    },
     "data/test_aggregate.csv": {
       "sha256": "93e8dcddae1771a21e14f8ccb9d0e6fc07280e26c3c75d0a1176a74403f6a5a7",
       "bytes": 868
@@ -401,6 +457,38 @@
     "protocols/prior_consumed_ids.json": {
       "sha256": "0868e53287961ce6fe9cd368063d633fd53a07a8d74e1309de13d717f6cf0210",
       "bytes": 1526260
+    },
+    "protocols/rendering_execution_audit.json": {
+      "sha256": "e9aa09c918b4ae0b8e4f86e0043e1c93bf52f46994e1532ba7e03288279dc469",
+      "bytes": 855
+    },
+    "protocols/rendering_initial_plan_72b.json": {
+      "sha256": "26dd9feeef799d7104f52ff6444e0ff2605b2bffd94a9db2959a526df7b6c6a0",
+      "bytes": 3325
+    },
+    "protocols/rendering_models.json": {
+      "sha256": "5267bfc1f2a9f48885b57f64f3e59f0aa291ff79b6566ef7089e1752b477dbac",
+      "bytes": 985
+    },
+    "protocols/rendering_plan.json": {
+      "sha256": "30985671835e7bfde44f4bd398bb4489171d4e2fdf7c08a799c13dc2809ecd4c",
+      "bytes": 3673
+    },
+    "protocols/rendering_portable_validation.json": {
+      "sha256": "b6e66e5205e78ce9445e176e62f81727ff4559acbc9504ee000238728d489578",
+      "bytes": 157
+    },
+    "protocols/rendering_queue_amendment.json": {
+      "sha256": "7482766a04a6b4a9218b7faa420200d8b76aeaff47c216e728e0264b8a7967ea",
+      "bytes": 702
+    },
+    "protocols/rendering_qwen_input_identity.json": {
+      "sha256": "60809052caabd93fe0c5bbf45dc83192b25836a6d3c5bc421ea9c9cd0109b366",
+      "bytes": 228
+    },
+    "protocols/rendering_statistical_validation.json": {
+      "sha256": "cd6a18ddd3c3daf7432ba328081488b7c7c50cafa049b61d756e5070cb03f03d",
+      "bytes": 338
     },
     "protocols/retrieval_identity.json": {
       "sha256": "e41f6bb227da471f8895c17e23c47f572e972feca24c9ef01134f91ff9062bd5",

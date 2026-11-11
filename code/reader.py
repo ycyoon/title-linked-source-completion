@@ -2,7 +2,7 @@
 import argparse,json,time
 from pathlib import Path
 import requests
-from native_completion import READERS
+from rendering_inputs import READERS
 
 def main():
  p=argparse.ArgumentParser();p.add_argument('--inputs',required=True);p.add_argument('--endpoint',required=True);p.add_argument('--model',required=True);p.add_argument('--out',required=True);a=p.parse_args()

@@ -1,0 +1,10 @@
+{
+  "questions": 4500,
+  "successful_upstream": 4498,
+  "valid_seed_questions": 4495,
+  "records": 179920,
+  "cost_scope": "Rendered full native prompts; costs condition on4498successful upstreams; exact-segment counts condition on4495valid seeds because fallback excerpts do not carry segment offsets. Equal dataset means.",
+  "header": "Same five-rendering decomposition as original diagnostics. Body includes constant prompt overhead; expanded-minus-own-seed subtracts that constant. Identifier/title contributions average insertion order and allcomponents sum to total.",
+  "repetition": "Rendered occurrences minus distinct exact corpusID/start/end identities. Compact logical selections may refer to duplicate original seed IDs; only one copy is rendered.",
+  "cap": "Original and compact expansions use the same T(original seed)+b ceiling; compact seed savings can supply extra text. These diagnostics are input-only."
+}

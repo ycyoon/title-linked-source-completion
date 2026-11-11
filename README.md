@@ -31,6 +31,30 @@ The seed-versus-unique-full-context contrast differs by reader: Qwen −0.4444 [
 
 The 72,000 repeated anchor conditions differ from the original execution in 1,531 answer strings, 220 EM scores and 540 F1 scores. Follow-up comparisons use contemporaneous outputs. The original primary result and original released predictions are preserved.
 
+## Larger reader and compact-rendering intervention
+
+A second descriptive experiment reuses the same 4,500 questions and adds **229,500 condition records**. Qwen2.5-14B-Instruct evaluates seed, deduplicated full context and all three expansion priorities at all three allowances (49,500 records). Qwen7 and Llama8 compare original and compact renderings contemporaneously (180,000 records). This is post hoc; it is not a new independent confirmatory test.
+
+All 45,000 common Qwen7/Qwen14 seed and expansion inputs have identical prompt hashes and native lengths, despite being reconstructed with their respective pinned tokenizers. The 14B checkpoint was selected before these predictions after a planned 72B deployment could not obtain sufficient shared GPU memory. This is a twice-size within-family check, not evidence for behavior at 70B scale. The original plan and resource amendment are retained.
+
+The compact rendering uses short stable `P{first_original_slot}` identifiers, merges sections with the same exact corpus passage ID, and renders each `(corpus_id,start,end)` segment once. All distinct seed segments survive; priority is still evaluated over the original slots, with no tier removal. Both renderings share the **same absolute original-seed-plus-allowance cap**. Header savings can admit additional segments. Each rendering has its own seed control. Identifiers, repetitions and merged sections form one joint intervention, not separately identified effects.
+
+In `rendering_effects.csv`, allowance 0 denotes averaging allowances 128/256/512; in input metadata and level-score tables, allowance 0 identifies an unexpanded baseline. The `expansion_interaction` rows are paired rendering changes after subtracting the corresponding seed change. The `reader_interaction` rows compare Qwen14-minus-Qwen7 expansion benefits on identical input text.
+
+All entries below are EM percentage-point differences with descriptive, unadjusted 95% paired intervals. Equal dataset weights and all three allowances are used. “Paired change” subtracts each rendering's own seed contrast, not two independently estimated intervals.
+
+| Policy         | Qwen14 − seed              | Compact − compact seed, original readers   | Paired change in expansion benefit   |
+|:---------------|:---------------------------|:-------------------------------------------|:-------------------------------------|
+| Window         | +1.3630 [+0.6889, +2.0519] | -1.1926 [-1.8148, -0.5704]                 | -0.5111 [-1.0185, -0.0111]           |
+| Linked         | +1.4889 [+0.8148, +2.1704] | -0.2778 [-0.9148, +0.3704]                 | -0.2111 [-0.7630, +0.3407]           |
+| Score priority | +2.1259 [+1.3852, +2.8667] | +0.0111 [-0.7000, +0.7333]                 | -0.5963 [-1.1333, -0.0593]           |
+
+Qwen14 seed minus unique full context is -3.0889 [-4.1111, -2.0667]. Compact minus original seed, averaged over the two original readers, is +0.3000 [-0.1222, +0.7222]. Every reader, allowance, dataset and F1 contrast, including unfavorable and imprecise cells, is provided in `data/rendering_effects.csv`. These descriptive intervals do not establish equivalence or multiplicity-controlled discovery.
+
+Input-only validation confirms every distinct seed segment is preserved and compact inputs have no exact repeated segments. At allowance 256, linked expansion admits about 12.0–12.1 distinct additions instead of 6.6–7.1. Original successful responses are retained across an operational queue-depth increase and identity-hash memoization; no answer was selected for replacement. The immutable scientific inputs, decoding, assigned replica and original primary outcome remain unchanged.
+
+Portable reconstruction matches all **139,500 added-condition prompts**, lengths and selections. Independent public scoring verifies all **229,500 predictions** against separately resolved labels, and the independent dataframe implementation reproduces all aggregate scores and contrasts. Complete verification reports and model settings are in `protocols/rendering_*`.
+
 ## What is included
 
 - `code/native_completion.py`: the actual scientific functions, extracted unchanged from the evaluated implementation, with portable model loading. All 20,160 development priority prompts and selected-ID sequences match the original implementation.
@@ -42,9 +66,10 @@ The 72,000 repeated anchor conditions differ from the original execution in 1,53
 - `data/*_questions.jsonl.gz`: benchmark IDs, local grouping IDs and source splits; no original benchmark passages.
 - `data/*_contexts.jsonl.gz`: ordered corpus slots, exact title/text hashes, ranks/scores and seed IDs. Repeated slots are intentional.
 - `data/*_input_metadata.jsonl.gz`: expected prompt hashes, native caps, selected segment IDs and compressor calibration traces, without corpus text.
-- `data/*_predictions.jsonl.gz`: every condition's generated answer, score, prompt/output size and failure flag. Development has 26,880 rows; confirmation has 117,000 rows; the post hoc follow-up has 162,000 rows.
+- `data/*_predictions.jsonl.gz`: every condition's generated answer, score, prompt/output size and failure flag. Development has 26,880 rows; confirmation has 117,000 rows; the first post hoc follow-up has 162,000 rows; the larger-reader/rendering experiment has 229,500 rows.
 - `data/confirmatory_question_scores.csv`: 4,500 question-level rows with original EM/F1 scores, benchmark IDs, splits and HotpotQA difficulty.
 - `code/followup_inputs.py`: exact-passage deduplication and archived-score expansion, plus the unchanged targeted ablations. All 90,000 added-condition prompts, token lengths and selected IDs match the original follow-up implementation.
+- `code/rendering_inputs.py`: the joint compact intervention and pinned Qwen14 tokenizer; `code/recompute_rendering.py` independently recomputes its complete paired statistics.
 - `code/coverage_diagnostics.py`: lexical coverage and exact full-prompt header decomposition functions; benchmark annotations must be obtained separately. Native diagnostic definitions and all per-question/aggregate outputs are included.
 - `protocols/`: pre-outcome plan, model revisions, sampling rules, provenance and validation results. The follow-up protocol is explicitly post hoc; it does not replace the confirmatory plan.
 
@@ -61,6 +86,7 @@ OPENBLAS_NUM_THREADS=1 python code/recompute.py --study test --out test-recomput
 OPENBLAS_NUM_THREADS=1 python code/recompute_followup.py --out followup-recomputed.json
 OPENBLAS_NUM_THREADS=1 python code/recompute_decomposition.py --out decompositions.json
 OPENBLAS_NUM_THREADS=1 python code/recompute_score_vs_seed.py --out score-vs-seed.csv
+OPENBLAS_NUM_THREADS=1 python code/recompute_rendering.py --out rendering-recomputed.json
 ```
 
 `episode_id` is the sorting/grouping identifier: preserve it when reproducing the fixed Monte Carlo stream. Each question is resampled as one unit with its six paired reader/allowance results. Confidence intervals are not six independent replications. The randomization test assumes paired-label exchangeability. It is not an assumption-free test of arbitrary equal means.
@@ -78,6 +104,7 @@ python code/prepare_questions.py --ids data/test_questions.jsonl.gz \
   --questions questions.jsonl --labels labels.jsonl
 python code/verify_scores.py --predictions data/test_predictions.jsonl.gz --labels labels.jsonl
 python code/verify_scores.py --predictions data/followup_predictions.jsonl.gz --labels labels.jsonl
+python code/verify_scores.py --predictions data/rendering_predictions.jsonl.gz --labels labels.jsonl
 ```
 
 For development use HotpotQA validation and the same FlashRAG 2Wiki dev distribution; MuSiQue is absent. Benchmark text and labels are generated locally from separately obtained source data.
@@ -97,7 +124,9 @@ python code/reader.py --inputs linked-qwen-256.jsonl \
 
 Repeat for `window`, both readers and allowances 128/256/512. The same command supports `seed`, `raw20` and `unique20` with allowance 0, and `rerank`, `no_first_priority` and `seed_only` with each native allowance. `unique20` retains the first occurrence of each exact corpus passage ID in source order; it does not merge same-title or overlapping passages. `rerank` sorts by the archived passage score against the retrieval subquery that generated the slot, then seed proximity, slot and segment. These scores are not newly computed sentence scores or calibrated across subqueries. Development additionally uses `first_no_link`, `no_first_priority`, `question_only`, `seed_only` and `random`. `native_completion.render`, `visible`, `prompt`, and `compressor.compress` expose the seed, excerpt, full-block and learned-compressor input construction. Empty evidence defines closed book. For LLMLingua-2, pass both pinned tokenizers, the frozen ranked slots and seed to `compressor.compress`; it returns all six reader/allowance inputs.
 
-Reader settings: vLLM 0.11.2, bfloat16, tensor parallelism 1, eager execution, initialization seed 0, maximum model length 16,384, maximum 8 sequences, 4,096 batched tokens, 2 GiB KV cache. Requests use temperature 0, seed 42, maximum 96 tokens, native stop IDs and `add_special_tokens=False`. Put every condition for a reader/question on the same replica. Zero-temperature decoding can still vary with hardware or scheduling; the stored predictions are the recorded realization used in the paper.
+For the added experiment, `--reader qwen14` supports the same original policies and `unique20`; the original readers additionally use `compact_seed` (allowance 0), `compact_window`, `compact_linked` and `compact_rerank`. The compact budget remains based on the original seed.
+
+Reader settings: vLLM 0.11.2, bfloat16, tensor parallelism 1, eager execution, initialization seed 0, maximum model length 16,384, maximum 8 sequences, 4,096 batched tokens, 2 GiB KV cache for Qwen7/Llama8 and 4 GiB for Qwen14. The additional experiment increased client queue depth from 8 to 32 questions per replica while keeping the server sequence limit at 8; identical frozen-identity hashes are memoized. Stored successful answers are retained across operational resumes. Requests use temperature 0, seed 42, maximum 96 tokens, native stop IDs and `add_special_tokens=False`. Put every condition for a reader/question on the same replica. Zero-temperature decoding can still vary with hardware or scheduling; the stored predictions are the recorded realization used in the paper.
 
 ## Data and model sources
 
@@ -105,7 +134,7 @@ Reader settings: vLLM 0.11.2, bfloat16, tensor parallelism 1, eager execution, i
 - 2WikiMultiHopQA: https://github.com/Alab-NII/2wikimultihop ; evaluated IDs and aliases use [FlashRAG dev](https://huggingface.co/datasets/RUC-NLPIR/FlashRAG_datasets/blob/bcafb8dd07d453be3cbeeeb3f78be1841bddf92c/2wikimultihopqa/dev.jsonl), revision `bcafb8dd07d453be3cbeeeb3f78be1841bddf92c`; these IDs differ from the original distribution.
 - MuSiQue: https://github.com/StonyBrookNLP/musique ; answerable v1.0, mirrored snapshot `c8f4f8c9465fb69d31a8eae894c3fd509c4ca321` of `dgslibisey/MuSiQue`.
 - DPR Wikipedia: https://huggingface.co/datasets/facebook/wiki_dpr ; 20 December 2018, 21,015,324 nonoverlapping 100-word blocks. Exact selected-block hashes are supplied.
-- Reader and compressor checkpoint identities: `protocols/models.json`.
+- Reader and compressor checkpoint identities: `protocols/models.json` and `protocols/rendering_models.json`.
 - Official LLMLingua-2 implementation: https://github.com/microsoft/LLMLingua (package 0.2.2).
 
 The splitter is a punctuation regex, not a linguistic sentence splitter. Blocks may begin or end mid-sentence, and the regex omits some text near internal punctuation. The evaluated implementation preserves these limitations; changing the splitter creates a different method. No selected source segment is character-trimmed in the native-cap study.

@@ -1,0 +1,5 @@
+{
+  "shared_conditions": 45000,
+  "identical_prompt_hashes_and_native_token_lengths": 45000,
+  "scope": "Input-only paired comparison of separately reconstructed Qwen7 and Qwen14 seed and expansion prompts; no answer access."
+}

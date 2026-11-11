@@ -1,0 +1,47 @@
+{
+  "readers": {
+    "qwen7": [
+      "Qwen/Qwen2.5-7B-Instruct",
+      "a09a35458c702b33eeacc393d103063234e8bc28",
+      [
+        151645,
+        151643
+      ]
+    ],
+    "llama8": [
+      "meta-llama/Llama-3.1-8B-Instruct",
+      "0e9e39f249a16976918f6564b8830bc894c89659",
+      [
+        128001,
+        128008,
+        128009
+      ]
+    ],
+    "qwen14": [
+      "Qwen/Qwen2.5-14B-Instruct",
+      "cf98f3b3bbb457ad9e2bb7baf9a0125b6b88caa8",
+      [
+        151645,
+        151643
+      ]
+    ]
+  },
+  "reader_settings": {
+    "dtype": "bfloat16",
+    "tensor_parallel_size": 1,
+    "eager": true,
+    "max_model_len": 16384,
+    "max_num_seqs": 8,
+    "max_num_batched_tokens": 4096,
+    "kv_cache_GiB": {
+      "qwen7": 2,
+      "llama8": 2,
+      "qwen14": 4
+    },
+    "model_initialization_seed": 0,
+    "request_seed": 42,
+    "temperature": 0,
+    "max_output_tokens": 96
+  },
+  "scope": "Larger-reader/rendering experiment. Original model manifest remains unchanged."
+}

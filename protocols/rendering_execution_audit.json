@@ -1,0 +1,16 @@
+{
+  "questions": 4500,
+  "records": 229500,
+  "failures": 102,
+  "upstream_failed_records": 102,
+  "reader_failed_records": 0,
+  "length_stops": 118,
+  "empty_answers": 0,
+  "cache_hits": 17788,
+  "record_summed_attempt_errors": 0,
+  "same_backend_per_question_reader": true,
+  "complete_sha256": "3fe1a9a23d044401c54cd1a42fce6b468d9d71417fdbc821238a004fe497f8c9",
+  "inputs_manifest_sha256": "24896a5aaba6e04393020c9f2b03e8bba47baced01593447d3e0c636af094d00",
+  "unique_request_identifiers": 211919,
+  "cache_note": "Counts are distinct request identifiers and record-level cache flags. Resumes can retain requests whose first completed response was cached before a whole question file was saved; therefore identifier and cache-hit counts are not a disjoint decomposition of condition records. They are not a physical GPU-call or latency measurement."
+}
