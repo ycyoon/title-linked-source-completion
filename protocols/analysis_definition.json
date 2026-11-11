@@ -1,0 +1,12 @@
+{
+  "recorded_at": 1794378753.7850585,
+  "primary_defined_in_plan": true,
+  "primary_draws": 100000,
+  "bootstrap_draws": 10000,
+  "seed": 20261111,
+  "metric_sources": {
+    "hotpot_2wiki": "Existing official-compatible implementation unchanged",
+    "musique": "Pinned official MuSiQue answer metric; extracted normalization/exact/F1 functions; maxima over supplied aliases; failed or empty answer=0. Handles nonempty raw strings with empty normalized token lists according to official F1."
+  },
+  "status": "Recorded before any fresh-question reader answers; no partial-test score inspection."
+}

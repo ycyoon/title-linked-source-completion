@@ -1,0 +1,7 @@
+{
+  "questions": 480,
+  "identical_prompts_and_selected_ids": 20160,
+  "all_priority_arms": 7,
+  "readers": 2,
+  "allowances": 3
+}

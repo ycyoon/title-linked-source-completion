@@ -1,0 +1,174 @@
+{
+  "status": "post hoc exploratory; preserves question clusters across both readers and all three budgets",
+  "questions": 480,
+  "bootstrap_draws": 10000,
+  "bootstrap_seed": 20261111,
+  "order": [
+    [
+      "qwen7",
+      128
+    ],
+    [
+      "qwen7",
+      256
+    ],
+    [
+      "qwen7",
+      512
+    ],
+    [
+      "llama8",
+      128
+    ],
+    [
+      "llama8",
+      256
+    ],
+    [
+      "llama8",
+      512
+    ]
+  ],
+  "estimates_pp": [
+    -0.625,
+    3.125,
+    0.20833333333333334,
+    -1.0416666666666667,
+    -1.6666666666666667,
+    3.958333333333333
+  ],
+  "covariance_pp2": [
+    [
+      2.221895339377037,
+      0.8742300092980029,
+      0.2615062761506279,
+      0.5217413412366341,
+      0.1710686889818689,
+      0.22318834263133364
+    ],
+    [
+      0.8742300092980029,
+      2.4376380172013086,
+      0.7349415969316588,
+      0.4441974662947452,
+      0.5153852859135297,
+      0.4986779404927937
+    ],
+    [
+      0.2615062761506279,
+      0.7349415969316588,
+      2.22189533937704,
+      0.48015457926545824,
+      0.2589638540213855,
+      0.43439098093909745
+    ],
+    [
+      0.5217413412366341,
+      0.4441974662947452,
+      0.48015457926545824,
+      2.3076112854486306,
+      0.6512232682473287,
+      0.31362592980009474
+    ],
+    [
+      0.1710686889818689,
+      0.5153852859135297,
+      0.2589638540213855,
+      0.6512232682473287,
+      2.7705137145513694,
+      0.8865789167828932
+    ],
+    [
+      0.22318834263133364,
+      0.4986779404927937,
+      0.43439098093909745,
+      0.31362592980009474,
+      0.8865789167828932,
+      2.451439737331467
+    ]
+  ],
+  "all_six_average_pp": 0.6597222222222222,
+  "average_low95": -1.076388888888889,
+  "average_high95": 2.4305555555555554,
+  "tests": [
+    {
+      "test": "all_six_effects_equal",
+      "wald_chi2": 16.046355823197604,
+      "df": 5,
+      "p": 0.0067129646488859164,
+      "holm2": 0.0067129646488859164
+    },
+    {
+      "test": "reader_by_budget_interaction",
+      "wald_chi2": 11.986273998514143,
+      "df": 2,
+      "p": 0.0024958223640491593,
+      "holm2": 0.0049916447280983186
+    }
+  ],
+  "sensitivity": [
+    {
+      "view": "heldout_matched",
+      "reader": "qwen7",
+      "se_pp": 0.6296556256633442,
+      "mde80_pp": 1.7640338933600979,
+      "hotpot_variance_fraction": 0.7139527190738864,
+      "n_each_for_1pp": 4664,
+      "n_each_for_0_8pp": 7287
+    },
+    {
+      "view": "heldout_matched",
+      "reader": "llama8",
+      "se_pp": 0.6523758796811042,
+      "mde80_pp": 1.827686621168026,
+      "hotpot_variance_fraction": 0.7082898359391459,
+      "n_each_for_1pp": 5046,
+      "n_each_for_0_8pp": 7884
+    },
+    {
+      "view": "native_cap_development",
+      "reader": "qwen7",
+      "allowance": 128,
+      "se_pp": 1.4906023411282558,
+      "mde80_pp": 4.176049484989506
+    },
+    {
+      "view": "native_cap_development",
+      "reader": "qwen7",
+      "allowance": 256,
+      "se_pp": 1.5612936998532045,
+      "mde80_pp": 4.374097350641644
+    },
+    {
+      "view": "native_cap_development",
+      "reader": "qwen7",
+      "allowance": 512,
+      "se_pp": 1.4906023411282567,
+      "mde80_pp": 4.176049484989509
+    },
+    {
+      "view": "native_cap_development",
+      "reader": "llama8",
+      "allowance": 128,
+      "se_pp": 1.5190823827062938,
+      "mde80_pp": 4.25583874848578
+    },
+    {
+      "view": "native_cap_development",
+      "reader": "llama8",
+      "allowance": 256,
+      "se_pp": 1.664486021134263,
+      "mde80_pp": 4.6631994325654205
+    },
+    {
+      "view": "native_cap_development",
+      "reader": "llama8",
+      "allowance": 512,
+      "se_pp": 1.565707423924236,
+      "mde80_pp": 4.386462774755874
+    }
+  ],
+  "average_n_each_for_1pp": 1515,
+  "average_n_each_for_0_8pp": 2367,
+  "sensitivity_note": "Normal approximation, two-sided alpha=.05 and 80% power; plug-in variance uncertain; no multiplicity adjustment. The 6-condition average is a different estimand, not 6 independent replicates."
+}

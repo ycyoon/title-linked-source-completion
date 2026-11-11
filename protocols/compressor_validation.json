@@ -1,0 +1,6 @@
+{
+  "consumed_smoke_questions": 6,
+  "identical_prompts_and_calibration": 36,
+  "model": "official MeetingBank",
+  "new_reader_inference": false
+}

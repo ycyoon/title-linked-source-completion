@@ -1,0 +1,6 @@
+{
+  "matched_prompts": 15588,
+  "prompts_with_character_trim_steps": 9249,
+  "trim_steps_total": 262893,
+  "final_partial_segment_prompts": 6881
+}

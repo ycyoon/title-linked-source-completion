@@ -1,0 +1,16 @@
+{
+  "valid_upstream_questions": 4498,
+  "mean_tokens_given_completed_upstream": {
+    "controller_input": 5946.060471320587,
+    "controller_output": 140.82547799021788,
+    "selector_input": 3854.8121387283236,
+    "selector_output": 32.25944864384171
+  },
+  "compressor_totals": {
+    "classifier_forwards": 4498,
+    "classifier_cache_hits": 143294,
+    "candidate_targets": 147788,
+    "seconds": 9254.392172861844
+  },
+  "limits": "Costs conditional on completed upstream exclude any unrecorded work in failed searches. Summed compressor work time is not wall time or controlled latency."
+}

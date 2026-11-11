@@ -1,0 +1,12 @@
+{
+  "time": 1794379953.3031852,
+  "all_36_smoke_inputs_identical": true,
+  "questions": 4500,
+  "shards": 4,
+  "question_order": "Fixed V27-UPSTREAM hash order; interleaved shards; waits for corresponding upstream complete marker",
+  "method_change": false,
+  "source_sha256": "6ca0406378f5fdce6ad6b73031b805895dd92b3dab98e7a058950698215cfa2c",
+  "original_compressor_sha256": "24b527c5b7ff974494e46b1843fabd560f9467357280dc5a42600bee4a26354d",
+  "original_input_sha256": "2d179b736f4a507103f7f6c7d278847c0720dc841d93730f5b4cfa5006ff4cfb",
+  "stream_check_sha256": "b6148960c998333fbf0b12557f8ebeb9d1b486c8fd10541d4b4248bc4e1f0c91"
+}

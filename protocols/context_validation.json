@@ -1,0 +1,8 @@
+{
+  "questions": 480,
+  "source_slots": 9600,
+  "distinct_corpus_blocks": 6110,
+  "all_text_and_title_hashes_match": true,
+  "all_seed_documents_identical": true,
+  "original_tsv_parser": true
+}

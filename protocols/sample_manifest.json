@@ -1,0 +1,44 @@
+{
+  "questions": 4500,
+  "per_dataset": 1500,
+  "weights": {
+    "hotpot": 0.3333333333333333,
+    "2wiki": 0.3333333333333333,
+    "musique": 0.3333333333333333
+  },
+  "seed": "V27-NATIVE-CONFIRM-20261111",
+  "scope": "New internal held-out sample; HotpotQA train, 2Wiki dev, MuSiQue train. No task training or tuning on these questions; not official test.",
+  "eligibility": {
+    "hotpot": 90434,
+    "2wiki": 4756,
+    "musique": 16065
+  },
+  "musique_eligible_hops": {
+    "2hop": 13357,
+    "3hop": 2535,
+    "4hop": 173
+  },
+  "musique_hop_quotas": {
+    "2hop": 1247,
+    "3hop": 237,
+    "4hop": 16
+  },
+  "prior_question_overlap": 0,
+  "prior_musique_component_overlap": 0,
+  "within_sample_shared_musique_components": 0,
+  "prior_registry_sha256": "d4f05ab3acceaee68106f0bbbe274a2e4f2548e44a5064ded7c2e17770e9c894",
+  "files": {
+    "test_episodes.jsonl": "f15b963ef142963e2f547bc5dbfb1aade3cb7efcc958210b27e88231a3504476",
+    "smoke_labels.jsonl": "93d6e4c0e94450b971abfa64fa9853280ce67e2072656f9a069853c1f0845299",
+    "smoke_episodes.jsonl": "0c6d7288dde4fbca27e88d03c0bd2eae876bf4427f3c6cfbb1a20f79aadeeb6f",
+    "test_labels.jsonl": "0a0d58707b8b551f4931b580621c4a6836e0ab907115c0145ea80faf7e42ba47"
+  },
+  "limits": "No claim of entity/topic or model-pretraining decontamination. MuSiQue is a hop-stratified, component-disjoint subset of the remaining train population.",
+  "source_files": {
+    "train-00000-of-00002.parquet": "76d3bb3048a7cc73c1958107c0c5872a00d7e7d00c105b81e92f6769e7822e68",
+    "train-00001-of-00002.parquet": "713661628434fbb19fff7392e2e321e4ed107e3c7c7784d0690946e5f722763f",
+    "dev.jsonl": "b4d74d73d1cb3c0632c665a85e1e5060e3411968b807721618cfd2464fc905e3",
+    "musique_ans_v1.0_train.jsonl": "83a75b1e11e4e9bb8f8308e72ac40ca617ae4431b3a0d955b61cab259248490a",
+    "musique_ans_v1.0_dev.jsonl": "15fa63794d18a94ce12411aca6e2327e65b6e83b0b1490efab3f1962e48abf3b"
+  }
+}

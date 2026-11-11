@@ -1,0 +1,37 @@
+{
+  "slots": 9600,
+  "alphanumeric_characters": 4691362,
+  "uncovered_alphanumeric_characters": 156776,
+  "affected_slots": 1824,
+  "uncovered_alphanumeric_fraction": 0.03341801378789358,
+  "affected_slot_fraction": 0.19,
+  "scope": "Posthoc dev480 input-only segmentation audit; original splitter not changed",
+  "examples": [
+    {
+      "title": "D. Ross Lederman",
+      "source": "concentrated on series television, and directed many episodes of \"Annie Oakley\" (1954), \"Buffalo Bill, Jr.\" and \"Range Rider\", among others. He retired in the early 1960s. He was married from the mid-'40s through the mid-'50s to June Lederman and was stepfather to her son Rusty, born about 1943. Lederman died in 1972. D. Ross Lederman David Ross Lederman (December 12, 1894 \u2013 August 24, 1972) was an American film director noted for his Western/action/adventure films of the 1930s and 1940s. Starting out as an extra in Mack Sennett's Keystone Cops series, Lederman worked his way through the ranks of film",
+      "selected_units": [
+        "\" and \"Range Rider\", among others.",
+        "He retired in the early 1960s.",
+        "He was married from the mid-'40s through the mid-'50s to June Lederman and was stepfather to her son Rusty, born about 1943.",
+        "Lederman died in 1972.",
+        "D.",
+        "Ross Lederman David Ross Lederman (December 12, 1894 \u2013 August 24, 1972) was an American film director noted for his Western/action/adventure films of the 1930s and 1940s.",
+        "Starting out as an extra in Mack Sennett's Keystone Cops series, Lederman worked his way through the ranks of film"
+      ]
+    },
+    {
+      "title": "D. Ross Lederman",
+      "source": "concentrated on series television, and directed many episodes of \"Annie Oakley\" (1954), \"Buffalo Bill, Jr.\" and \"Range Rider\", among others. He retired in the early 1960s. He was married from the mid-'40s through the mid-'50s to June Lederman and was stepfather to her son Rusty, born about 1943. Lederman died in 1972. D. Ross Lederman David Ross Lederman (December 12, 1894 \u2013 August 24, 1972) was an American film director noted for his Western/action/adventure films of the 1930s and 1940s. Starting out as an extra in Mack Sennett's Keystone Cops series, Lederman worked his way through the ranks of film",
+      "selected_units": [
+        "\" and \"Range Rider\", among others.",
+        "He retired in the early 1960s.",
+        "He was married from the mid-'40s through the mid-'50s to June Lederman and was stepfather to her son Rusty, born about 1943.",
+        "Lederman died in 1972.",
+        "D.",
+        "Ross Lederman David Ross Lederman (December 12, 1894 \u2013 August 24, 1972) was an American film director noted for his Western/action/adventure films of the 1930s and 1940s.",
+        "Starting out as an extra in Mack Sennett's Keystone Cops series, Lederman worked his way through the ranks of film"
+      ]
+    }
+  ]
+}

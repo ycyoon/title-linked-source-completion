@@ -1,0 +1,115 @@
+{
+  "bge_revision": "a5beb1e3e68b9ab74eb54cfd186867f64f240e1a",
+  "top_k": 60,
+  "nprobe": 128,
+  "files": {
+    "meta.json": {
+      "sha256": "25a60f4e149540f2af9eae9b0fc72c3c74877755c5a7db0037754d7071635616",
+      "bytes": 822
+    },
+    "offsets.npy": {
+      "sha256": "24c3f9712ec282587acbd109fabfb27082e4e96e35e39522dbb94e6e0ceb642b",
+      "bytes": 168122720
+    },
+    "corpus.tsv": {
+      "sha256": "b05be6af226c07ea4bb8fbe1059505deb9a4e2214bcd4593ebc70c692402782a",
+      "bytes": 13698848932
+    },
+    "wiki.index": {
+      "sha256": "36cda22357cfacb5ca225221bb1c40acf50fbaa7f00516d74a883d0014b6df90",
+      "bytes": 64783672939
+    }
+  },
+  "faiss_version": "1.9.0",
+  "encoder_dtype": "float32",
+  "implementation_sha256": "5f6dcdf5131a7622f5a69f5541d0f3202646a36c23bec4621f6c3bd45de7e148",
+  "passage_vectors": {
+    "bytes": 64559075328,
+    "shape": [
+      21015324,
+      768
+    ],
+    "dtype": "float32",
+    "sha256": "54fbf0a991fc5700e2ac5d6f885f7c4dbb4f6b7f5f8ffd70c52fe93b33996465"
+  },
+  "bm25_index": {
+    "passages": 21015324,
+    "corpus_sha256": "b05be6af226c07ea4bb8fbe1059505deb9a4e2214bcd4593ebc70c692402782a",
+    "builder_sha256": "991e86db25cd673e6b0990d4c99da25e01da1338fc832b143b07be39e033e26b",
+    "tantivy_python": "0.25.1",
+    "tantivy_engine": "tantivy v0.25.0, index_format v7",
+    "contents": "unquoted title + period + unquoted text",
+    "tokenizer": "Tantivy built-in en_stem; no query grammar; unique analyzed terms OR",
+    "similarity": "Tantivy BM25 defaults k1=1.2,b=0.75; no relevance tuning",
+    "threads": 16,
+    "heap_bytes": 8000000000,
+    "wall_seconds": 282.38562443689443,
+    "files": {
+      ".managed.json": {
+        "bytes": 502,
+        "sha256": "336627e451e8532933f1f37d52e62830d6c226da1920419a0e1467a46dd8b139"
+      },
+      "164c4c2c5f864bb79692b620a26072d3.fast": {
+        "bytes": 11353115,
+        "sha256": "4d0a0fcece63c8e35d90bb802392b7731f6357fb6447639102a3ec6aad2fdd01"
+      },
+      "164c4c2c5f864bb79692b620a26072d3.fieldnorm": {
+        "bytes": 10532748,
+        "sha256": "7fb8100b258720e89763f58932e65bf887a7b9dc6f3bbef96518e1d7b8e6aa51"
+      },
+      "164c4c2c5f864bb79692b620a26072d3.idx": {
+        "bytes": 1129580132,
+        "sha256": "c7abd3c333cda05d4bbdfffae7817a5be7bbf0576049498c09917bbb96f5363f"
+      },
+      "164c4c2c5f864bb79692b620a26072d3.pos": {
+        "bytes": 111,
+        "sha256": "8ac2ef29686b108bce9715a11cd9ffebfe54dfccd424eaf63f79226612fce363"
+      },
+      "164c4c2c5f864bb79692b620a26072d3.store": {
+        "bytes": 85437252,
+        "sha256": "478587d1d27e6b16aeb4e2aefc0c52fc3eca2f58a81b60081f6c56f9ae896ebd"
+      },
+      "164c4c2c5f864bb79692b620a26072d3.term": {
+        "bytes": 106317882,
+        "sha256": "3d95081d08c25032c4bab48367038a3035874a3a09a4d4967dbabffdb4599cbf"
+      },
+      "da883aea5a8d4146a5bb8a38903f7799.fast": {
+        "bytes": 11306023,
+        "sha256": "9fa07aff0e855de6ef06b7b587a5621112223934766669988212843885f3b520"
+      },
+      "da883aea5a8d4146a5bb8a38903f7799.fieldnorm": {
+        "bytes": 10482786,
+        "sha256": "d73b834c821d2c91f2bfe5e6ba10f86d24b4573c2865f30a1b77f74f3dc6fedf"
+      },
+      "da883aea5a8d4146a5bb8a38903f7799.idx": {
+        "bytes": 1124258082,
+        "sha256": "b7165d20262bd097b460bb34628b404b7358c30bc9e3e499d66fc75c66e59bca"
+      },
+      "da883aea5a8d4146a5bb8a38903f7799.pos": {
+        "bytes": 111,
+        "sha256": "8ac2ef29686b108bce9715a11cd9ffebfe54dfccd424eaf63f79226612fce363"
+      },
+      "da883aea5a8d4146a5bb8a38903f7799.store": {
+        "bytes": 85033008,
+        "sha256": "a34c2400ae7c4e9c75e678f7c240cc598a5d0ba70bb62c41dd8d1973cd3d52ef"
+      },
+      "da883aea5a8d4146a5bb8a38903f7799.term": {
+        "bytes": 105945622,
+        "sha256": "fadeda8147f7d6dfb8e791808d1c58c81f39d211be940fd260f9ee1b93c8d5cc"
+      },
+      "meta.json": {
+        "bytes": 842,
+        "sha256": "a737181dbbaa675bf6e253e5a2aabbf0ed5d6125da813e29c70fc3e4261690c1"
+      }
+    }
+  },
+  "bm25_hit_count": false,
+  "lexical_search_sha256": "ef47f0cf5e1f8c1034e4692daa77a1352c507460bb31489bc5a8cadfe15cc806",
+  "scope": "Dense plus BM25 arm only; title-restricted retrieval was not used.",
+  "index_configuration": {
+    "factory": "IVF18336,Flat",
+    "nlist": 18336,
+    "dim": 768,
+    "train_size": 1000000
+  }
+}

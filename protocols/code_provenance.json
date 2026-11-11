@@ -1,0 +1,92 @@
+[
+  {
+    "source": "experiments/v2/common.py",
+    "symbol": "digest",
+    "source_sha256": "93c1395710c4bda7a839f1efd45987704ad004129e79a8699ea581c036117292"
+  },
+  {
+    "source": "experiments/v2/common.py",
+    "symbol": "normalize_question",
+    "source_sha256": "93c1395710c4bda7a839f1efd45987704ad004129e79a8699ea581c036117292"
+  },
+  {
+    "source": "experiments/v18/methods.py",
+    "symbol": "sentence_units",
+    "source_sha256": "63fdc6860e692e87440dcd3e874b7d592485caf7bccbe506bfb2bea12f4605a2"
+  },
+  {
+    "source": "experiments/v11/run.py",
+    "symbol": "visible",
+    "source_sha256": "c3311c773ff2c5579d1ba8ceaf698959aab49e42c62c314a194a218ce3f7f2ee"
+  },
+  {
+    "source": "experiments/v19/methods.py",
+    "symbol": "sources",
+    "source_sha256": "6004e85175d5e8dc2f4be3d44f4ae7fbd0dd47263da3bcd3bba70a9172195fcd"
+  },
+  {
+    "source": "experiments/v19/methods.py",
+    "symbol": "render",
+    "source_sha256": "6004e85175d5e8dc2f4be3d44f4ae7fbd0dd47263da3bcd3bba70a9172195fcd"
+  },
+  {
+    "source": "experiments/v3/infer.py",
+    "symbol": "render_documents",
+    "source_sha256": "a168fb4490aefb65091e9afa00a501af0fa159bfa05df9bb2b5893de36c924d5"
+  },
+  {
+    "source": "experiments/v3/infer.py",
+    "symbol": "chat",
+    "source_sha256": "a168fb4490aefb65091e9afa00a501af0fa159bfa05df9bb2b5893de36c924d5"
+  },
+  {
+    "source": "experiments/v22/methods.py",
+    "symbol": "prompt",
+    "source_sha256": "9ec4eb5389b0156745c248126c44d4db45bcee98acaf25067288dc0e9365d828"
+  },
+  {
+    "source": "experiments/v22/methods.py",
+    "symbol": "count",
+    "source_sha256": "9ec4eb5389b0156745c248126c44d4db45bcee98acaf25067288dc0e9365d828"
+  },
+  {
+    "source": "experiments/v26/methods.py",
+    "symbol": "expand",
+    "source_sha256": "04941df3656954001431366d9e54419c5109808f5bb1fdce5bbc5e89105e073c"
+  },
+  {
+    "source": "experiments/v2/metrics.py",
+    "symbol": "normalize_answer",
+    "source_sha256": "2a2db6de9402e64002461eaaf45a1aaceff2f7246760e802f34f7be6ee9e8263"
+  },
+  {
+    "source": "experiments/v2/metrics.py",
+    "symbol": "token_f1",
+    "source_sha256": "2a2db6de9402e64002461eaaf45a1aaceff2f7246760e802f34f7be6ee9e8263"
+  },
+  {
+    "source": "experiments/v3/statistics.py",
+    "symbol": "extract_answer",
+    "source_sha256": "27bba725a6dc0d9a6fd0fa5520759aea8053fffca181a64740b9ed015951faaf"
+  },
+  {
+    "source": "experiments/v3/vendor/musique.py",
+    "symbol": "normalize_answer",
+    "source_sha256": "10368f619b4d5ef5d83748c05a96c0afd332a14ab5c010740c98d58dfaefe974"
+  },
+  {
+    "source": "experiments/v3/vendor/musique.py",
+    "symbol": "get_tokens",
+    "source_sha256": "10368f619b4d5ef5d83748c05a96c0afd332a14ab5c010740c98d58dfaefe974"
+  },
+  {
+    "source": "experiments/v3/vendor/musique.py",
+    "symbol": "compute_exact",
+    "source_sha256": "10368f619b4d5ef5d83748c05a96c0afd332a14ab5c010740c98d58dfaefe974"
+  },
+  {
+    "source": "experiments/v3/vendor/musique.py",
+    "symbol": "compute_f1",
+    "source_sha256": "10368f619b4d5ef5d83748c05a96c0afd332a14ab5c010740c98d58dfaefe974"
+  }
+]

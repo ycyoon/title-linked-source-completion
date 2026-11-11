@@ -1,0 +1,27 @@
+{
+  "created_utc": "2026-11-11T06:13:52.202512+00:00",
+  "status": "Prospectively fixed independent internal holdout; no fresh-question model outcome yet",
+  "questions": 4500,
+  "per_dataset": 1500,
+  "dataset_weights": {
+    "hotpot": 0.3333333333333333,
+    "2wiki": 0.3333333333333333,
+    "musique": 0.3333333333333333
+  },
+  "data_manifest_sha256": "37f88d0775c8f3948a385ba1637e129dbfbb82028e9d0582bdd727f6f1a6ae6d",
+  "sources": "HotpotQA official train; 2Wiki official dev; MuSiQue answerable train. Internal held-out test, not official test. No fitting on selected questions.",
+  "eligibility": "Exclude all consumed normalized questions and all prior MuSiQue decomposition IDs. Within selected MuSiQue no decomposition ID is shared. Preserve eligible hop proportions via fixed quotas, selecting higher-hop strata first; no gold outcome selection.",
+  "method": "Exactly V24 native-cap title-linked expansion and window; complete regex source segments; seed retained; no method/budget changes after new outcomes.",
+  "primary": "Equal-dataset mean of per-question EM(linked)-EM(window), averaged over both readers and allowances128/256/512. One primary contrast; no per-cell selection.",
+  "primary_test": "Two-sided question-clustered sign-flip randomization with100000 draws, seed20261111, preserving all six outcomes in each question and dataset weights. Monte Carlo p=(extreme+1)/(100000+1). Alpha0.05. Report signed effect and10000-draw stratified question-paired bootstrap95%interval regardless of sign/p.",
+  "secondary": "F1 counterpart; all dataset/reader/budget scores and paired effects; native-cap seed, LLMLingua-2, full20, excerpt20, closed-book comparisons descriptive. No new confirmatory significance claims from these secondary cells.",
+  "conditions_per_reader": "At b128/256/512: linked,window,llmlingua2. At b0: seed,raw20,excerpt20,closed_book. 26outputs/question across2readers;117000total.",
+  "upstream": "Original four-search Qwen controller, depth60 dense+BM25, fixed hybrid40 BGE reranking and top5persearch (20slots); original relevance seed extraction; no gold labels accessible to inference.",
+  "compression": "Same official LLMLingua-2 package/checkpoint and input-only cap calibration as V26; complete source20slots, native cap=seed prompt length+b; no output-based tuning.",
+  "reader": "Same pinned Qwen2.5-7B and Llama3.1-8B revisions; bfloat16 vLLM0.11.2; temperature0 seed42 max96; same recorded replica for every condition of a reader/question.",
+  "failure": "Three client attempts only for unsuccessful requests. Valid wrong/empty/length-stopped answers retained. Upstream request failure yields zero for all dependent methods; independent closed-book still evaluated when possible. Invalid seed selection retains original fallback. No efficacy stopping, exclusions, replacement questions, or optional sample-size extension.",
+  "power": "At N1500each across3datasets, transferring the previous two-dataset six-condition average variance gives approximate80%MDE0.82pp (1pp power>80%). This is a pilot projection, not a guarantee: MuSiQue/train population variance is unknown; per-reader/budget comparisons are secondary and not separately powered. Do not count six reader/budget repetitions as independent questions.",
+  "execution": "Smoke uses six previously consumed questions. Freeze source/model/data identities after operational smoke before any test rollout. Complete all4500reserved questions. Retain any original failures and operational amendments.",
+  "decision": "A positive primary effect supports only this fixed averaged estimand. Assess usefulness against seed/uncompressed/compression baselines and full ablations; no blanket superiority or necessary-tier claim. If not reproduced, do not submit as established performance-improving method.",
+  "publication": "No external upload, paid service, email or journal submission as part of this run."
+}

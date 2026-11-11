@@ -1,0 +1,9 @@
+{
+  "questions": 4500,
+  "valid_questions": 4498,
+  "records": 26988,
+  "outcome_access": false,
+  "tier_accounting": "Telescoping native prompt increments after adding all finally selected tier0, then tier1, then tier2 segments in source order; includes header and token-boundary interactions.",
+  "header_accounting": "Full prompt minus same prompt with each [identifier] title line removed; incremental header effect from seed to expanded prompt.",
+  "failure_policy": "Input diagnostics condition on completed upstream; all failures remain in the primary efficacy denominator."
+}

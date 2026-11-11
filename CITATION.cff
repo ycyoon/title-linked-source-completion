@@ -1,0 +1,11 @@
+cff-version: 1.2.0
+message: "Please cite these artifacts when reusing the evaluation."
+title: "Title-Linked Source Completion under Native Token Caps: Reproducibility Artifacts"
+type: software
+authors:
+  - family-names: Yoon
+    given-names: Yeo-Chan
+    affiliation: Jeju National University
+version: "2026-11-11"
+date-released: 2026-11-11
+repository-code: "https://github.com/ycyoon/title-linked-source-completion"

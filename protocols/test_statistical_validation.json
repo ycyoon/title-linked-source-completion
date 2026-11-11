@@ -1,0 +1,9 @@
+{
+  "questions": 4500,
+  "raw_predictions_rescored": 117000,
+  "matching_numeric_fields": 1132,
+  "primary_randomization_identical": true,
+  "independently_resolved_benchmark_labels": true,
+  "maximum_absolute_tolerance": 1e-10,
+  "source_summary_sha256": "b5c51317d9d5923014edf3bc93d909236e765964398bddde101546358bed1ab0"
+}
