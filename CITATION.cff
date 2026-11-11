@@ -1,6 +1,6 @@
 cff-version: 1.2.0
 message: "Please cite these artifacts when reusing the evaluation."
-title: "Title-Linked Source Completion under Native Token Caps: Reproducibility Artifacts"
+title: "Evaluating Context Expansion after Evidence Extraction in Multi-Hop Question Answering: Reproducibility Artifacts"
 type: software
 authors:
   - family-names: Yoon

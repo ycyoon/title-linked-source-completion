@@ -1,0 +1,12 @@
+{
+  "questions": 4500,
+  "matching_numeric_fields": 2205,
+  "paired_decompositions_recomputed": true,
+  "window_seed_randomization": {
+    "p": 0.011999880001199987,
+    "extreme": 1199,
+    "draws": 100000,
+    "seed": 20261111,
+    "observed_integer_sum": -200
+  }
+}

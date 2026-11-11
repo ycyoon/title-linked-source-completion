@@ -2,6 +2,7 @@
 import argparse,gzip,json
 from pathlib import Path
 from native_completion import *
+from followup_inputs import construct, ARMS as REPLAY_ARMS
 
 
 def read(path):
@@ -26,7 +27,8 @@ def collect_corpus(path,wanted):
 
 
 def main():
- p=argparse.ArgumentParser();p.add_argument('--contexts',required=True);p.add_argument('--questions',required=True,help='JSONL with dataset, source_id, question');p.add_argument('--corpus',required=True,help='DPR psgs_w100.tsv, decompressed');p.add_argument('--out',required=True);p.add_argument('--reader',choices=list(READERS),required=True);p.add_argument('--arm',choices=ARMS,default='linked');p.add_argument('--allowance',type=int,choices=BUDGETS,default=256);a=p.parse_args()
+ p=argparse.ArgumentParser();p.add_argument('--contexts',required=True);p.add_argument('--questions',required=True,help='JSONL with dataset, source_id, question');p.add_argument('--corpus',required=True,help='DPR psgs_w100.tsv, decompressed');p.add_argument('--out',required=True);p.add_argument('--reader',choices=list(READERS),required=True);p.add_argument('--arm',choices=REPLAY_ARMS,default='linked');p.add_argument('--allowance',type=int,choices=[0]+BUDGETS,default=256);a=p.parse_args()
+ if a.allowance==0 and a.arm not in ['seed','raw20','unique20']:p.error('Expansion requires allowance 128, 256 or 512')
  contexts=read(a.contexts);questions={(r['dataset'],r['source_id']):r['question'] for r in read(a.questions)}
  corpus=collect_corpus(a.corpus,{s['pid'] for r in contexts for s in r.get('slots',[])})
  tok=reader_tokenizer(a.reader)
@@ -41,8 +43,7 @@ def main():
     ranked=[raw[i:i+5] for i in range(0,20,5)];_,units=sources(ranked)
     seed=dict(selection=dict(selected=r['seed_ids'],valid=r['seed_valid']))
     seed['documents']=render(raw,units,r['seed_ids']) if r['seed_valid'] else [visible(d,shared_tokenizer()) for d in raw]
-    if r['seed_valid']:value=expand(question,ranked,seed,tok,a.allowance,a.arm)
-    else:value=dict(prompt=prompt(tok,question,seed['documents']),upstream_failure=False,invalid_seed=True)
-   value.update(episode_id=r['episode_id'],reader=a.reader,arm=a.arm,allowance=a.allowance)
+    value=construct(question,ranked,seed,tok,a.allowance,a.arm)
+   value.update(episode_id=r['episode_id'],reader=a.reader,arm=a.arm,allowance=0 if a.arm in ['seed','raw20','unique20'] else a.allowance)
    out.write(json.dumps(value,ensure_ascii=False)+'\n')
 if __name__=='__main__':main()

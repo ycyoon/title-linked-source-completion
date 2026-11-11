@@ -1,0 +1,7 @@
+{
+  "source": "https://aclanthology.org/2026.findings-emnlp.1068/",
+  "status": 200,
+  "doi": "10.18653/2026.findings-emnlp.1068",
+  "in_html": true,
+  "note": "Both DOI metadata and BibTeX fields in official Anthology include the DOI without v1."
+}

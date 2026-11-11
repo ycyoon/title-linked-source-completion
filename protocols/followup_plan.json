@@ -1,0 +1,17 @@
+{
+  "created_utc": "2026-11-11T09:35:27.530722+00:00",
+  "scope": "Post hoc descriptive follow-up on all 4500 previously evaluated confirmatory questions; not a new independent confirmation.",
+  "questions": 4500,
+  "records": 162000,
+  "conditions": "Both readers: seed, repeated full20, deduplicated full20 at b0; linked, window, no_first_priority, seed_only, rerank at b128/256/512.",
+  "original_primary": "Preserve V27 primary estimate, interval and test unchanged. Replayed anchors quantify operational answer variation and provide within-run comparisons for added conditions.",
+  "unique20": "Retain the first occurrence of each corpus passage ID, in original retrieval-slot order. Assert repeated ID has identical title/text; no semantic deduplication or title/identifier shortening.",
+  "rerank": "Descending archived BGE score of the slot from its original retrieval subquery; ties by proximity to a seed segment within slot, slot index, segment index. Retain seed, add whole frozen regex segments under full native cap. No new reranker calls, segment-specific scores, calibration or gold use.",
+  "ablations": "Unchanged V26 no_first_priority and seed_only, with unchanged V24 invalid-seed fallback.",
+  "controls": "Copy original seed/full20/linked/window prompts exactly. Rerun all18conditions for a reader/question on one assigned replica with original revisions/bfloat16/max96/temperature0/seed42. Preserve two original upstream failures in denominator.",
+  "inference": "All162000records completed before efficacy analysis. Three attempts only for failed operational calls; valid wrong or length-stopped outputs retained.",
+  "analysis": "Descriptive question-paired stratified bootstrap intervals, 10000draws seed20261111, equal datasets. Report all budgets/readers, no favorable selection. Existing-data allowance/dataset and Hotpot difficulty analyses explicitly post hoc; no claim of subgroup confirmation.",
+  "diagnostics": "Native-cap input coverage for4500questions; title/identifier token decomposition with specified order and boundary interactions; exact repeated corpus-segment additions; Hotpot level distribution; preliminary execution disagreement; anonymous public commit access.",
+  "limitations": "MuSiQue provides supporting paragraphs, not gold sentence indices: report gold title presence and paragraph-aligned selected-text overlap separately, never label paragraph coverage sentence recall. No end-to-end compute-saving claim.",
+  "source_manifest_sha256": "1742458498e359e79f04e3f03ed6cd7b6b5412560583d3eae929bd9e67ad726e"
+}

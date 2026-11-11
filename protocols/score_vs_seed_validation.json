@@ -1,0 +1,6 @@
+{
+  "post_outcome_descriptive_comparison": true,
+  "rows": 96,
+  "point_estimates_checked_against_paired_contrast_identity": true,
+  "intervals": "Direct paired differences resampled with the previously independently validated stratified bootstrap; do not subtract interval endpoints."
+}

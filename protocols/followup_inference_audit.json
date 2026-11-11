@@ -1,0 +1,15 @@
+{
+  "questions": 4500,
+  "records": 162000,
+  "failures": 72,
+  "upstream_failed_records": 72,
+  "reader_failed_records": 0,
+  "length_stops": 17,
+  "empty_answers": 0,
+  "cache_hits": 44369,
+  "unique_requests": 117559,
+  "record_summed_attempt_errors": 0,
+  "same_backend_per_question_reader": true,
+  "complete_sha256": "7933c9b7f25a59170b8364981a5025fb44a4dad8c7fd1bb248ece0274d2ebcd5",
+  "inputs_manifest_sha256": "d36a4fc7f59d9c8ffccb2b8227dcee1e59b1f8309f4113c988e499fa091871f6"
+}

@@ -1,0 +1,17 @@
+reader,allowance,arm,raw_answer_changed,em_changed,f1_changed
+llama8,0,raw20,97,15,42
+llama8,0,seed,82,5,21
+llama8,128,linked,96,9,27
+llama8,128,window,102,8,23
+llama8,256,linked,109,17,33
+llama8,256,window,120,16,37
+llama8,512,linked,110,16,40
+llama8,512,window,96,16,32
+qwen7,0,raw20,98,19,42
+qwen7,0,seed,92,14,36
+qwen7,128,linked,110,16,37
+qwen7,128,window,94,12,40
+qwen7,256,linked,78,17,32
+qwen7,256,window,68,12,20
+qwen7,512,linked,80,14,34
+qwen7,512,window,99,14,44

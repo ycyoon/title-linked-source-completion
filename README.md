@@ -1,8 +1,8 @@
-# Title-Linked Source Completion under Native Token Caps
+# Evaluating Context Expansion after Evidence Extraction in Multi-Hop Question Answering
 
 Research artifacts for Yeo-Chan Yoon, Artificial Intelligence Department, Jeju National University. Correspondence: ycyoon@jejunu.ac.kr.
 
-This repository evaluates a deterministic, seed-preserving context expansion rule. It is a research manuscript artifact, not a claim of an accepted publication or general state-of-the-art performance.
+This repository contains an empirical evaluation of evidence retention, context expansion and expansion priority. It is a research manuscript artifact, not a claim of an accepted publication or general state-of-the-art performance.
 
 ## Status and interpretation
 
@@ -10,7 +10,26 @@ The development study evaluates 480 questions, two readers, three allowances and
 
 The separate confirmation reserves 1,500 questions each from HotpotQA train, 2Wiki dev and MuSiQue answerable train. These are internal held-out questions, not official hidden-test results. One primary contrast was fixed before outcomes: the per-question EM difference between linked and window, averaged over both readers and all three allowances, with equal dataset weights. All other contrasts are descriptive. The primary EM difference is **+0.6333 percentage points** (95% paired bootstrap CI **+0.1593 to +1.0926**; two-sided randomization **p = 0.0088099**). Dataset-average differences are +0.3333 HotpotQA, +0.1778 2Wiki and +1.3889 MuSiQue.
 
-The average differences from seed, full context and LLMLingua-2 are **−0.1074**, **+1.8259** and **+9.8000** EM points, respectively. The seed interval is −0.6852 to +0.4815: expanding the seed has no established average benefit. All three Llama allowance estimates fall below its seed score. The positive primary result supports a narrow advantage over proximity expansion, not a general recommendation to add context. Other comparisons remain descriptive.
+Linked minus seed is **−0.1074 EM points** (95% interval −0.6852 to +0.4815); window minus seed is **−0.7407** (−1.3222 to −0.1593). The three allowance-specific linked-minus-window estimates are −0.40, +0.80 and +1.50 points. These decompositions are descriptive. Retaining the seed remains essential as a comparator.
+
+The selected HotpotQA sample contains **329 easy, 940 medium and 231 hard** questions. Restricting HotpotQA to hard questions, while retaining the other two datasets and equal dataset weights, gives **+0.1134** points (−0.7250 to +0.9742). The mixed-difficulty primary result cannot be generalized to the official hard-only population.
+
+A post hoc follow-up evaluates all 4,500 questions again with deduplicated full context, two targeted ablations and an archived relevance-score priority, alongside repeated original anchors: **162,000 records**. These comparisons reuse the test questions and are not independent confirmation. All differences below average both readers, all allowances where relevant and equal dataset weights.
+
+| Descriptive EM contrast | Difference (points) | 95% paired interval |
+|---|---:|---:|
+| Linked − window | +0.5778 | [+0.1037, +1.0407] |
+| Linked − seed | −0.1148 | [−0.6963, +0.4852] |
+| Seed − unique full blocks | +1.5889 | [+0.6556, +2.5333] |
+| Unique − repeated full blocks | +0.2889 | [−0.2556, +0.8333] |
+| Linked − no first priority | +0.3630 | [−0.0148, +0.7370] |
+| Linked − seed-only link | −0.2222 | [−0.5407, +0.0926] |
+| Linked − relevance-score priority | −0.7111 | [−1.2482, −0.1778] |
+| Relevance-score priority − seed | +0.5963 | [−0.0593, +1.2519] |
+
+The seed-versus-unique-full-context contrast differs by reader: Qwen −0.4444 [−1.5778, +0.6889], Llama +3.6222 [+2.4222, +4.8444]. Thus neither a universal advantage for extracting nor general title-link superiority is established. Native input diagnostics also distinguish title coverage from sentence/word coverage, exact repeated additions, and identifier versus title token costs. The 64–71% identifier share of header increments at allowance 256 applies to the evaluated long-hash rendering.
+
+The 72,000 repeated anchor conditions differ from the original execution in 1,531 answer strings, 220 EM scores and 540 F1 scores. Follow-up comparisons use contemporaneous outputs. The original primary result and original released predictions are preserved.
 
 ## What is included
 
@@ -23,8 +42,11 @@ The average differences from seed, full context and LLMLingua-2 are **−0.1074*
 - `data/*_questions.jsonl.gz`: benchmark IDs, local grouping IDs and source splits; no original benchmark passages.
 - `data/*_contexts.jsonl.gz`: ordered corpus slots, exact title/text hashes, ranks/scores and seed IDs. Repeated slots are intentional.
 - `data/*_input_metadata.jsonl.gz`: expected prompt hashes, native caps, selected segment IDs and compressor calibration traces, without corpus text.
-- `data/*_predictions.jsonl.gz`: every condition's generated answer, score, prompt/output size and failure flag. Development has 26,880 rows; confirmation has 117,000 rows.
-- `protocols/`: pre-outcome plan, model revisions, sampling rules, provenance and validation results.
+- `data/*_predictions.jsonl.gz`: every condition's generated answer, score, prompt/output size and failure flag. Development has 26,880 rows; confirmation has 117,000 rows; the post hoc follow-up has 162,000 rows.
+- `data/confirmatory_question_scores.csv`: 4,500 question-level rows with original EM/F1 scores, benchmark IDs, splits and HotpotQA difficulty.
+- `code/followup_inputs.py`: exact-passage deduplication and archived-score expansion, plus the unchanged targeted ablations. All 90,000 added-condition prompts, token lengths and selected IDs match the original follow-up implementation.
+- `code/coverage_diagnostics.py`: lexical coverage and exact full-prompt header decomposition functions; benchmark annotations must be obtained separately. Native diagnostic definitions and all per-question/aggregate outputs are included.
+- `protocols/`: pre-outcome plan, model revisions, sampling rules, provenance and validation results. The follow-up protocol is explicitly post hoc; it does not replace the confirmatory plan.
 
 Original benchmark text, Wikipedia corpus, model weights, private endpoints, credentials and inference caches are not redistributed. The portable workflow reproduces selection, prompts, reader replay and statistics **conditional on the supplied frozen retrieval slots and seed selections**. It does not rebuild the 21-million-passage dense/BM25 indexes or reproduce the adaptive upstream search from scratch. The manuscript supplies the controller and selector prompts and all material settings; frozen slots avoid silently changing that upstream realization.
 
@@ -36,6 +58,9 @@ Use Python 3.11 with NumPy and pandas. These commands require no model, GPU or b
 python -m pip install -r requirements-statistics.txt
 OPENBLAS_NUM_THREADS=1 python code/recompute.py --study dev --out dev-recomputed.json
 OPENBLAS_NUM_THREADS=1 python code/recompute.py --study test --out test-recomputed.json
+OPENBLAS_NUM_THREADS=1 python code/recompute_followup.py --out followup-recomputed.json
+OPENBLAS_NUM_THREADS=1 python code/recompute_decomposition.py --out decompositions.json
+OPENBLAS_NUM_THREADS=1 python code/recompute_score_vs_seed.py --out score-vs-seed.csv
 ```
 
 `episode_id` is the sorting/grouping identifier: preserve it when reproducing the fixed Monte Carlo stream. Each question is resampled as one unit with its six paired reader/allowance results. Confidence intervals are not six independent replications. The randomization test assumes paired-label exchangeability. It is not an assumption-free test of arbitrary equal means.
@@ -52,6 +77,7 @@ python code/prepare_questions.py --ids data/test_questions.jsonl.gz \
   --source musique=/path/to/musique_ans_v1.0_train.jsonl \
   --questions questions.jsonl --labels labels.jsonl
 python code/verify_scores.py --predictions data/test_predictions.jsonl.gz --labels labels.jsonl
+python code/verify_scores.py --predictions data/followup_predictions.jsonl.gz --labels labels.jsonl
 ```
 
 For development use HotpotQA validation and the same FlashRAG 2Wiki dev distribution; MuSiQue is absent. Benchmark text and labels are generated locally from separately obtained source data.
@@ -69,7 +95,7 @@ python code/reader.py --inputs linked-qwen-256.jsonl \
   --endpoint http://localhost:8000/v1 --model your-served-model --out answers.jsonl
 ```
 
-Repeat for `window`, both readers and allowances 128/256/512. Development additionally uses `first_no_link`, `no_first_priority`, `question_only`, `seed_only` and `random`. `native_completion.render`, `visible`, `prompt`, and `compressor.compress` expose the seed, excerpt, full-block and learned-compressor input construction. Empty evidence defines closed book. For LLMLingua-2, pass both pinned tokenizers, the frozen ranked slots and seed to `compressor.compress`; it returns all six reader/allowance inputs.
+Repeat for `window`, both readers and allowances 128/256/512. The same command supports `seed`, `raw20` and `unique20` with allowance 0, and `rerank`, `no_first_priority` and `seed_only` with each native allowance. `unique20` retains the first occurrence of each exact corpus passage ID in source order; it does not merge same-title or overlapping passages. `rerank` sorts by the archived passage score against the retrieval subquery that generated the slot, then seed proximity, slot and segment. These scores are not newly computed sentence scores or calibrated across subqueries. Development additionally uses `first_no_link`, `no_first_priority`, `question_only`, `seed_only` and `random`. `native_completion.render`, `visible`, `prompt`, and `compressor.compress` expose the seed, excerpt, full-block and learned-compressor input construction. Empty evidence defines closed book. For LLMLingua-2, pass both pinned tokenizers, the frozen ranked slots and seed to `compressor.compress`; it returns all six reader/allowance inputs.
 
 Reader settings: vLLM 0.11.2, bfloat16, tensor parallelism 1, eager execution, initialization seed 0, maximum model length 16,384, maximum 8 sequences, 4,096 batched tokens, 2 GiB KV cache. Requests use temperature 0, seed 42, maximum 96 tokens, native stop IDs and `add_special_tokens=False`. Put every condition for a reader/question on the same replica. Zero-temperature decoding can still vary with hardware or scheduling; the stored predictions are the recorded realization used in the paper.
 
@@ -86,4 +112,4 @@ The splitter is a punctuation regex, not a linguistic sentence splitter. Blocks 
 
 ## Scope of reproduction and reuse
 
-The release retains unfavorable and failed outputs, all fixed budgets, and historical diagnostic evidence. It does not imply pretraining decontamination, a necessary role for every priority tier, or total compute savings: the controller and language-model seed selector have substantial costs. Third-party benchmark, model and evaluator terms remain those of their original providers. See `THIRD_PARTY.md` for evaluator attribution. No new license over third-party content is asserted.
+The release retains unfavorable and failed outputs, all fixed budgets, and preliminary diagnostic evidence. It does not imply pretraining decontamination, a necessary role for every priority tier, or total compute savings: the controller and language-model seed selector have substantial costs. Third-party benchmark, model and evaluator terms remain those of their original providers. See `THIRD_PARTY.md` for evaluator attribution. No new license over third-party content is asserted.

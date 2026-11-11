@@ -1,0 +1,9 @@
+{
+  "questions": 4500,
+  "coverage_records": 72000,
+  "cost_records": 53976,
+  "scope": "Native-cap confirmatory inputs; coverage includes upstream failures as zero; cost/duplicate rows condition on4498successful upstream questions.",
+  "header": "Exact full-prompt decomposition: body-only, empty [] header scaffolding, and equal-weight two-order (Shapley) title/identifier increments. Report expanded-minus-seed increments; components sum exactly, including tokenizer boundary interactions. Specific to src_ plus16hex rendering.",
+  "duplicate": "An added segment is redundant if the same (corpus passage ID,start,end) was already selected in the seed or earlier additions. Report repeats against seed separately. Distinct IDs with overlapping text are not collapsed.",
+  "coverage": "Gold title presence; Hotpot/2Wiki strict same-title gold-sentence containment and source-conditional retention; all datasets same-title gold-support word-type recall and non-Boolean answer-string presence. MuSiQue has paragraph labels, so no gold-sentence recall is assigned. Unresolvable gold sentence indices remain in the recall denominator as absent, are counted explicitly, and supply no gold words to lexical overlap. Word overlap is lexical coverage, not semantic support or paragraph identification across corpus versions."
+}
