@@ -1,0 +1,1171 @@
+{
+  "schema_version": 1,
+  "experiment": "v30",
+  "new_open_readers": [
+    "P1",
+    "P2",
+    "P3",
+    "P4",
+    "P5",
+    "P6",
+    "P7",
+    "P8"
+  ],
+  "api_reader": null,
+  "deployment": {
+    "checked_utc": "2026-11-13T13:42:21.222590+00:00",
+    "coordinator_python": "/ceph_data/ycyoon/envs/tide/bin/python",
+    "dtype": "bfloat16",
+    "gpu_indices": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "gpu_memory_utilization": 0.4,
+    "gpu_model": "NVIDIA RTX PRO 6000 Blackwell Max-Q Workstation Edition",
+    "hardware": [
+      {
+        "free_mib_at_inspection": 62391,
+        "index": 0,
+        "name": "NVIDIA RTX PRO 6000 Blackwell Max-Q Workstation Edition",
+        "total_mib": 97887,
+        "uuid": "GPU-b48f7e2a-7484-b95d-8936-70f4786220ed"
+      },
+      {
+        "free_mib_at_inspection": 65899,
+        "index": 1,
+        "name": "NVIDIA RTX PRO 6000 Blackwell Max-Q Workstation Edition",
+        "total_mib": 97887,
+        "uuid": "GPU-1c351779-854a-69e2-27ef-b292e6fe8f9a"
+      },
+      {
+        "free_mib_at_inspection": 64003,
+        "index": 2,
+        "name": "NVIDIA RTX PRO 6000 Blackwell Max-Q Workstation Edition",
+        "total_mib": 97887,
+        "uuid": "GPU-d93b541e-6478-60fe-9819-dac6576c7292"
+      },
+      {
+        "free_mib_at_inspection": 62243,
+        "index": 3,
+        "name": "NVIDIA RTX PRO 6000 Blackwell Max-Q Workstation Edition",
+        "total_mib": 97887,
+        "uuid": "GPU-17f0f42b-7cc1-a67c-ce18-2926be0c0ec8"
+      }
+    ],
+    "host": "127.0.0.1",
+    "hostname": "nlp",
+    "public_address": "203.253.207.130",
+    "tensor_parallel_size": {
+      "P1": 4,
+      "P2": 1,
+      "P3": 2,
+      "P4": 1,
+      "P5": 1,
+      "P6": 1,
+      "P7": 2,
+      "P8": 4,
+      "Q14": 1
+    },
+    "tokenizer_runtime": {
+      "tokenizers": "0.22.2",
+      "transformers": "4.57.6"
+    },
+    "torch_version": "2.9.0+cu128",
+    "user_authorized_local_migration": true,
+    "vllm_version": "0.11.2"
+  },
+  "execution_readers": [
+    {
+      "slot": "P1",
+      "model": "meta-llama/Llama-3.3-70B-Instruct",
+      "revision": "6f6073b423013f6a7d4d9f39144961bfbfbc386b",
+      "model_path": "/ceph_data/ycyoon/work/AgencyBuy/agency-audit/experiments/v30/model_cache/models--meta-llama--Llama-3.3-70B-Instruct/snapshots/6f6073b423013f6a7d4d9f39144961bfbfbc386b",
+      "family": "Llama",
+      "parameters": 70553706496,
+      "size": "large",
+      "existing_reader": false,
+      "merge_system": false,
+      "stop_token_ids": [
+        128001,
+        128008,
+        128009
+      ],
+      "serving": {
+        "vllm_version": "0.11.2",
+        "dtype": "bfloat16",
+        "tensor_parallel_size": 4,
+        "max_model_len": 16384,
+        "enforce_eager": true,
+        "max_num_seqs": 8,
+        "max_num_batched_tokens": 4096,
+        "seed": 0,
+        "kv_cache_memory_bytes": 4294967296,
+        "generation_config": "vllm",
+        "gpu_memory_utilization": 0.4
+      },
+      "replicas": [
+        {
+          "logical_id": "P1-r0",
+          "url": "http://127.0.0.1:30310",
+          "served_model": "v30-P1-r0",
+          "service_config": {
+            "slot": "P1",
+            "repo": "/ceph_data/ycyoon/work/AgencyBuy/agency-audit",
+            "model_path": "/ceph_data/ycyoon/work/AgencyBuy/agency-audit/experiments/v30/model_cache/models--meta-llama--Llama-3.3-70B-Instruct/snapshots/6f6073b423013f6a7d4d9f39144961bfbfbc386b",
+            "revision": "6f6073b423013f6a7d4d9f39144961bfbfbc386b",
+            "host": "127.0.0.1",
+            "gpus": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "port": 30310,
+            "served_model": "v30-P1-r0",
+            "max_model_len": 16384,
+            "kv_cache_memory_bytes": 4294967296,
+            "gpu_memory_utilization": 0.4,
+            "minimum_free_mib": 42858,
+            "directory": "/ceph_data/ycyoon/work/AgencyBuy/agency-audit/experiments/v30/runtime/services/P1-r0"
+          }
+        }
+      ],
+      "conditions": [
+        "closed_book",
+        "seed",
+        "unique_full",
+        "window_128",
+        "linked_128",
+        "score_priority_128",
+        "window_256",
+        "linked_256",
+        "score_priority_256",
+        "window_512",
+        "linked_512",
+        "score_priority_512"
+      ]
+    },
+    {
+      "slot": "P2",
+      "model": "google/gemma-2-9b-it",
+      "revision": "11c9b309abf73637e4b6f9a3fa1e92e615547819",
+      "model_path": "/ceph_data/ycyoon/.cache/huggingface/hub/models--google--gemma-2-9b-it/snapshots/11c9b309abf73637e4b6f9a3fa1e92e615547819",
+      "family": "Gemma",
+      "parameters": 9241705984,
+      "size": "small",
+      "existing_reader": false,
+      "merge_system": true,
+      "stop_token_ids": [
+        1,
+        107
+      ],
+      "serving": {
+        "vllm_version": "0.11.2",
+        "dtype": "bfloat16",
+        "tensor_parallel_size": 1,
+        "max_model_len": 8192,
+        "enforce_eager": true,
+        "max_num_seqs": 8,
+        "max_num_batched_tokens": 4096,
+        "seed": 0,
+        "kv_cache_memory_bytes": 4294967296,
+        "generation_config": "vllm",
+        "gpu_memory_utilization": 0.4
+      },
+      "replicas": [
+        {
+          "logical_id": "P2-r0",
+          "url": "http://127.0.0.1:30320",
+          "served_model": "v30-P2-r0",
+          "service_config": {
+            "slot": "P2",
+            "repo": "/ceph_data/ycyoon/work/AgencyBuy/agency-audit",
+            "model_path": "/ceph_data/ycyoon/.cache/huggingface/hub/models--google--gemma-2-9b-it/snapshots/11c9b309abf73637e4b6f9a3fa1e92e615547819",
+            "revision": "11c9b309abf73637e4b6f9a3fa1e92e615547819",
+            "host": "127.0.0.1",
+            "gpus": [
+              0
+            ],
+            "port": 30320,
+            "served_model": "v30-P2-r0",
+            "max_model_len": 8192,
+            "kv_cache_memory_bytes": 4294967296,
+            "gpu_memory_utilization": 0.4,
+            "minimum_free_mib": 26843,
+            "directory": "/ceph_data/ycyoon/work/AgencyBuy/agency-audit/experiments/v30/runtime/services/P2-r0"
+          }
+        },
+        {
+          "logical_id": "P2-r1",
+          "url": "http://127.0.0.1:30321",
+          "served_model": "v30-P2-r1",
+          "service_config": {
+            "slot": "P2",
+            "repo": "/ceph_data/ycyoon/work/AgencyBuy/agency-audit",
+            "model_path": "/ceph_data/ycyoon/.cache/huggingface/hub/models--google--gemma-2-9b-it/snapshots/11c9b309abf73637e4b6f9a3fa1e92e615547819",
+            "revision": "11c9b309abf73637e4b6f9a3fa1e92e615547819",
+            "host": "127.0.0.1",
+            "gpus": [
+              1
+            ],
+            "port": 30321,
+            "served_model": "v30-P2-r1",
+            "max_model_len": 8192,
+            "kv_cache_memory_bytes": 4294967296,
+            "gpu_memory_utilization": 0.4,
+            "minimum_free_mib": 26843,
+            "directory": "/ceph_data/ycyoon/work/AgencyBuy/agency-audit/experiments/v30/runtime/services/P2-r1"
+          }
+        },
+        {
+          "logical_id": "P2-r2",
+          "url": "http://127.0.0.1:30322",
+          "served_model": "v30-P2-r2",
+          "service_config": {
+            "slot": "P2",
+            "repo": "/ceph_data/ycyoon/work/AgencyBuy/agency-audit",
+            "model_path": "/ceph_data/ycyoon/.cache/huggingface/hub/models--google--gemma-2-9b-it/snapshots/11c9b309abf73637e4b6f9a3fa1e92e615547819",
+            "revision": "11c9b309abf73637e4b6f9a3fa1e92e615547819",
+            "host": "127.0.0.1",
+            "gpus": [
+              2
+            ],
+            "port": 30322,
+            "served_model": "v30-P2-r2",
+            "max_model_len": 8192,
+            "kv_cache_memory_bytes": 4294967296,
+            "gpu_memory_utilization": 0.4,
+            "minimum_free_mib": 26843,
+            "directory": "/ceph_data/ycyoon/work/AgencyBuy/agency-audit/experiments/v30/runtime/services/P2-r2"
+          }
+        },
+        {
+          "logical_id": "P2-r3",
+          "url": "http://127.0.0.1:30323",
+          "served_model": "v30-P2-r3",
+          "service_config": {
+            "slot": "P2",
+            "repo": "/ceph_data/ycyoon/work/AgencyBuy/agency-audit",
+            "model_path": "/ceph_data/ycyoon/.cache/huggingface/hub/models--google--gemma-2-9b-it/snapshots/11c9b309abf73637e4b6f9a3fa1e92e615547819",
+            "revision": "11c9b309abf73637e4b6f9a3fa1e92e615547819",
+            "host": "127.0.0.1",
+            "gpus": [
+              3
+            ],
+            "port": 30323,
+            "served_model": "v30-P2-r3",
+            "max_model_len": 8192,
+            "kv_cache_memory_bytes": 4294967296,
+            "gpu_memory_utilization": 0.4,
+            "minimum_free_mib": 26843,
+            "directory": "/ceph_data/ycyoon/work/AgencyBuy/agency-audit/experiments/v30/runtime/services/P2-r3"
+          }
+        }
+      ],
+      "conditions": [
+        "closed_book",
+        "seed",
+        "unique_full",
+        "window_128",
+        "linked_128",
+        "score_priority_128",
+        "window_256",
+        "linked_256",
+        "score_priority_256",
+        "window_512",
+        "linked_512",
+        "score_priority_512"
+      ]
+    },
+    {
+      "slot": "P3",
+      "model": "google/gemma-2-27b-it",
+      "revision": "aaf20e6b9f4c0fcf043f6fb2a2068419086d77b0",
+      "model_path": "/ceph_data/ycyoon/work/AgencyBuy/agency-audit/experiments/v30/model_cache/models--google--gemma-2-27b-it/snapshots/aaf20e6b9f4c0fcf043f6fb2a2068419086d77b0",
+      "family": "Gemma",
+      "parameters": 27227128320,
+      "size": "large",
+      "existing_reader": false,
+      "merge_system": true,
+      "stop_token_ids": [
+        1,
+        107
+      ],
+      "serving": {
+        "vllm_version": "0.11.2",
+        "dtype": "bfloat16",
+        "tensor_parallel_size": 2,
+        "max_model_len": 8192,
+        "enforce_eager": true,
+        "max_num_seqs": 8,
+        "max_num_batched_tokens": 4096,
+        "seed": 0,
+        "kv_cache_memory_bytes": 4294967296,
+        "generation_config": "vllm",
+        "gpu_memory_utilization": 0.4
+      },
+      "replicas": [
+        {
+          "logical_id": "P3-r0",
+          "url": "http://127.0.0.1:30330",
+          "served_model": "v30-P3-r0",
+          "service_config": {
+            "slot": "P3",
+            "repo": "/ceph_data/ycyoon/work/AgencyBuy/agency-audit",
+            "model_path": "/ceph_data/ycyoon/work/AgencyBuy/agency-audit/experiments/v30/model_cache/models--google--gemma-2-27b-it/snapshots/aaf20e6b9f4c0fcf043f6fb2a2068419086d77b0",
+            "revision": "aaf20e6b9f4c0fcf043f6fb2a2068419086d77b0",
+            "host": "127.0.0.1",
+            "gpus": [
+              0,
+              1
+            ],
+            "port": 30330,
+            "served_model": "v30-P3-r0",
+            "max_model_len": 8192,
+            "kv_cache_memory_bytes": 4294967296,
+            "gpu_memory_utilization": 0.4,
+            "minimum_free_mib": 35181,
+            "directory": "/ceph_data/ycyoon/work/AgencyBuy/agency-audit/experiments/v30/runtime/services/P3-r0"
+          }
+        },
+        {
+          "logical_id": "P3-r1",
+          "url": "http://127.0.0.1:30331",
+          "served_model": "v30-P3-r1",
+          "service_config": {
+            "slot": "P3",
+            "repo": "/ceph_data/ycyoon/work/AgencyBuy/agency-audit",
+            "model_path": "/ceph_data/ycyoon/work/AgencyBuy/agency-audit/experiments/v30/model_cache/models--google--gemma-2-27b-it/snapshots/aaf20e6b9f4c0fcf043f6fb2a2068419086d77b0",
+            "revision": "aaf20e6b9f4c0fcf043f6fb2a2068419086d77b0",
+            "host": "127.0.0.1",
+            "gpus": [
+              2,
+              3
+            ],
+            "port": 30331,
+            "served_model": "v30-P3-r1",
+            "max_model_len": 8192,
+            "kv_cache_memory_bytes": 4294967296,
+            "gpu_memory_utilization": 0.4,
+            "minimum_free_mib": 35181,
+            "directory": "/ceph_data/ycyoon/work/AgencyBuy/agency-audit/experiments/v30/runtime/services/P3-r1"
+          }
+        }
+      ],
+      "conditions": [
+        "closed_book",
+        "seed",
+        "unique_full",
+        "window_128",
+        "linked_128",
+        "score_priority_128",
+        "window_256",
+        "linked_256",
+        "score_priority_256",
+        "window_512",
+        "linked_512",
+        "score_priority_512"
+      ]
+    },
+    {
+      "slot": "P4",
+      "model": "mistralai/Mistral-7B-Instruct-v0.3",
+      "revision": "c170c708c41dac9275d15a8fff4eca08d52bab71",
+      "model_path": "/ceph_data/ycyoon/.cache/huggingface/hub/models--mistralai--Mistral-7B-Instruct-v0.3/snapshots/c170c708c41dac9275d15a8fff4eca08d52bab71",
+      "family": "Mistral",
+      "parameters": 7248023552,
+      "size": "small",
+      "existing_reader": false,
+      "merge_system": false,
+      "stop_token_ids": [
+        2
+      ],
+      "serving": {
+        "vllm_version": "0.11.2",
+        "dtype": "bfloat16",
+        "tensor_parallel_size": 1,
+        "max_model_len": 16384,
+        "enforce_eager": true,
+        "max_num_seqs": 8,
+        "max_num_batched_tokens": 4096,
+        "seed": 0,
+        "kv_cache_memory_bytes": 2147483648,
+        "generation_config": "vllm",
+        "gpu_memory_utilization": 0.4
+      },
+      "replicas": [
+        {
+          "logical_id": "P4-r0",
+          "url": "http://127.0.0.1:30340",
+          "served_model": "v30-P4-r0",
+          "service_config": {
+            "slot": "P4",
+            "repo": "/ceph_data/ycyoon/work/AgencyBuy/agency-audit",
+            "model_path": "/ceph_data/ycyoon/.cache/huggingface/hub/models--mistralai--Mistral-7B-Instruct-v0.3/snapshots/c170c708c41dac9275d15a8fff4eca08d52bab71",
+            "revision": "c170c708c41dac9275d15a8fff4eca08d52bab71",
+            "host": "127.0.0.1",
+            "gpus": [
+              0
+            ],
+            "port": 30340,
+            "served_model": "v30-P4-r0",
+            "max_model_len": 16384,
+            "kv_cache_memory_bytes": 2147483648,
+            "gpu_memory_utilization": 0.4,
+            "minimum_free_mib": 23040,
+            "directory": "/ceph_data/ycyoon/work/AgencyBuy/agency-audit/experiments/v30/runtime/services/P4-r0"
+          }
+        },
+        {
+          "logical_id": "P4-r1",
+          "url": "http://127.0.0.1:30341",
+          "served_model": "v30-P4-r1",
+          "service_config": {
+            "slot": "P4",
+            "repo": "/ceph_data/ycyoon/work/AgencyBuy/agency-audit",
+            "model_path": "/ceph_data/ycyoon/.cache/huggingface/hub/models--mistralai--Mistral-7B-Instruct-v0.3/snapshots/c170c708c41dac9275d15a8fff4eca08d52bab71",
+            "revision": "c170c708c41dac9275d15a8fff4eca08d52bab71",
+            "host": "127.0.0.1",
+            "gpus": [
+              1
+            ],
+            "port": 30341,
+            "served_model": "v30-P4-r1",
+            "max_model_len": 16384,
+            "kv_cache_memory_bytes": 2147483648,
+            "gpu_memory_utilization": 0.4,
+            "minimum_free_mib": 23040,
+            "directory": "/ceph_data/ycyoon/work/AgencyBuy/agency-audit/experiments/v30/runtime/services/P4-r1"
+          }
+        },
+        {
+          "logical_id": "P4-r2",
+          "url": "http://127.0.0.1:30342",
+          "served_model": "v30-P4-r2",
+          "service_config": {
+            "slot": "P4",
+            "repo": "/ceph_data/ycyoon/work/AgencyBuy/agency-audit",
+            "model_path": "/ceph_data/ycyoon/.cache/huggingface/hub/models--mistralai--Mistral-7B-Instruct-v0.3/snapshots/c170c708c41dac9275d15a8fff4eca08d52bab71",
+            "revision": "c170c708c41dac9275d15a8fff4eca08d52bab71",
+            "host": "127.0.0.1",
+            "gpus": [
+              2
+            ],
+            "port": 30342,
+            "served_model": "v30-P4-r2",
+            "max_model_len": 16384,
+            "kv_cache_memory_bytes": 2147483648,
+            "gpu_memory_utilization": 0.4,
+            "minimum_free_mib": 23040,
+            "directory": "/ceph_data/ycyoon/work/AgencyBuy/agency-audit/experiments/v30/runtime/services/P4-r2"
+          }
+        },
+        {
+          "logical_id": "P4-r3",
+          "url": "http://127.0.0.1:30343",
+          "served_model": "v30-P4-r3",
+          "service_config": {
+            "slot": "P4",
+            "repo": "/ceph_data/ycyoon/work/AgencyBuy/agency-audit",
+            "model_path": "/ceph_data/ycyoon/.cache/huggingface/hub/models--mistralai--Mistral-7B-Instruct-v0.3/snapshots/c170c708c41dac9275d15a8fff4eca08d52bab71",
+            "revision": "c170c708c41dac9275d15a8fff4eca08d52bab71",
+            "host": "127.0.0.1",
+            "gpus": [
+              3
+            ],
+            "port": 30343,
+            "served_model": "v30-P4-r3",
+            "max_model_len": 16384,
+            "kv_cache_memory_bytes": 2147483648,
+            "gpu_memory_utilization": 0.4,
+            "minimum_free_mib": 23040,
+            "directory": "/ceph_data/ycyoon/work/AgencyBuy/agency-audit/experiments/v30/runtime/services/P4-r3"
+          }
+        }
+      ],
+      "conditions": [
+        "closed_book",
+        "seed",
+        "unique_full",
+        "window_128",
+        "linked_128",
+        "score_priority_128",
+        "window_256",
+        "linked_256",
+        "score_priority_256",
+        "window_512",
+        "linked_512",
+        "score_priority_512"
+      ]
+    },
+    {
+      "slot": "P5",
+      "model": "mistralai/Mistral-Small-24B-Instruct-2501",
+      "revision": "9527884be6e5616bdd54de542f9ae13384489724",
+      "model_path": "/ceph_data/ycyoon/.cache/huggingface/hub/models--mistralai--Mistral-Small-24B-Instruct-2501/snapshots/9527884be6e5616bdd54de542f9ae13384489724",
+      "family": "Mistral",
+      "parameters": 23572403200,
+      "size": "large",
+      "existing_reader": false,
+      "merge_system": false,
+      "stop_token_ids": [
+        2
+      ],
+      "serving": {
+        "vllm_version": "0.11.2",
+        "dtype": "bfloat16",
+        "tensor_parallel_size": 1,
+        "max_model_len": 16384,
+        "enforce_eager": true,
+        "max_num_seqs": 8,
+        "max_num_batched_tokens": 4096,
+        "seed": 0,
+        "kv_cache_memory_bytes": 4294967296,
+        "generation_config": "vllm",
+        "gpu_memory_utilization": 0.4
+      },
+      "replicas": [
+        {
+          "logical_id": "P5-r0",
+          "url": "http://127.0.0.1:30350",
+          "served_model": "v30-P5-r0",
+          "service_config": {
+            "slot": "P5",
+            "repo": "/ceph_data/ycyoon/work/AgencyBuy/agency-audit",
+            "model_path": "/ceph_data/ycyoon/.cache/huggingface/hub/models--mistralai--Mistral-Small-24B-Instruct-2501/snapshots/9527884be6e5616bdd54de542f9ae13384489724",
+            "revision": "9527884be6e5616bdd54de542f9ae13384489724",
+            "host": "127.0.0.1",
+            "gpus": [
+              0
+            ],
+            "port": 30350,
+            "served_model": "v30-P5-r0",
+            "max_model_len": 16384,
+            "kv_cache_memory_bytes": 4294967296,
+            "gpu_memory_utilization": 0.4,
+            "minimum_free_mib": 54176,
+            "directory": "/ceph_data/ycyoon/work/AgencyBuy/agency-audit/experiments/v30/runtime/services/P5-r0"
+          }
+        },
+        {
+          "logical_id": "P5-r1",
+          "url": "http://127.0.0.1:30351",
+          "served_model": "v30-P5-r1",
+          "service_config": {
+            "slot": "P5",
+            "repo": "/ceph_data/ycyoon/work/AgencyBuy/agency-audit",
+            "model_path": "/ceph_data/ycyoon/.cache/huggingface/hub/models--mistralai--Mistral-Small-24B-Instruct-2501/snapshots/9527884be6e5616bdd54de542f9ae13384489724",
+            "revision": "9527884be6e5616bdd54de542f9ae13384489724",
+            "host": "127.0.0.1",
+            "gpus": [
+              1
+            ],
+            "port": 30351,
+            "served_model": "v30-P5-r1",
+            "max_model_len": 16384,
+            "kv_cache_memory_bytes": 4294967296,
+            "gpu_memory_utilization": 0.4,
+            "minimum_free_mib": 54176,
+            "directory": "/ceph_data/ycyoon/work/AgencyBuy/agency-audit/experiments/v30/runtime/services/P5-r1"
+          }
+        },
+        {
+          "logical_id": "P5-r2",
+          "url": "http://127.0.0.1:30352",
+          "served_model": "v30-P5-r2",
+          "service_config": {
+            "slot": "P5",
+            "repo": "/ceph_data/ycyoon/work/AgencyBuy/agency-audit",
+            "model_path": "/ceph_data/ycyoon/.cache/huggingface/hub/models--mistralai--Mistral-Small-24B-Instruct-2501/snapshots/9527884be6e5616bdd54de542f9ae13384489724",
+            "revision": "9527884be6e5616bdd54de542f9ae13384489724",
+            "host": "127.0.0.1",
+            "gpus": [
+              2
+            ],
+            "port": 30352,
+            "served_model": "v30-P5-r2",
+            "max_model_len": 16384,
+            "kv_cache_memory_bytes": 4294967296,
+            "gpu_memory_utilization": 0.4,
+            "minimum_free_mib": 54176,
+            "directory": "/ceph_data/ycyoon/work/AgencyBuy/agency-audit/experiments/v30/runtime/services/P5-r2"
+          }
+        },
+        {
+          "logical_id": "P5-r3",
+          "url": "http://127.0.0.1:30353",
+          "served_model": "v30-P5-r3",
+          "service_config": {
+            "slot": "P5",
+            "repo": "/ceph_data/ycyoon/work/AgencyBuy/agency-audit",
+            "model_path": "/ceph_data/ycyoon/.cache/huggingface/hub/models--mistralai--Mistral-Small-24B-Instruct-2501/snapshots/9527884be6e5616bdd54de542f9ae13384489724",
+            "revision": "9527884be6e5616bdd54de542f9ae13384489724",
+            "host": "127.0.0.1",
+            "gpus": [
+              3
+            ],
+            "port": 30353,
+            "served_model": "v30-P5-r3",
+            "max_model_len": 16384,
+            "kv_cache_memory_bytes": 4294967296,
+            "gpu_memory_utilization": 0.4,
+            "minimum_free_mib": 54176,
+            "directory": "/ceph_data/ycyoon/work/AgencyBuy/agency-audit/experiments/v30/runtime/services/P5-r3"
+          }
+        }
+      ],
+      "conditions": [
+        "closed_book",
+        "seed",
+        "unique_full",
+        "window_128",
+        "linked_128",
+        "score_priority_128",
+        "window_256",
+        "linked_256",
+        "score_priority_256",
+        "window_512",
+        "linked_512",
+        "score_priority_512"
+      ]
+    },
+    {
+      "slot": "P6",
+      "model": "microsoft/phi-4",
+      "revision": "2db69c1c3e91a05d2c64a3185acfbaf36f744e25",
+      "model_path": "/ceph_data/ycyoon/.cache/huggingface/hub/models--microsoft--phi-4/snapshots/2db69c1c3e91a05d2c64a3185acfbaf36f744e25",
+      "family": "Phi",
+      "parameters": 14659507200,
+      "size": "small",
+      "existing_reader": false,
+      "merge_system": false,
+      "stop_token_ids": [
+        100257,
+        100265
+      ],
+      "serving": {
+        "vllm_version": "0.11.2",
+        "dtype": "bfloat16",
+        "tensor_parallel_size": 1,
+        "max_model_len": 16384,
+        "enforce_eager": true,
+        "max_num_seqs": 8,
+        "max_num_batched_tokens": 4096,
+        "seed": 0,
+        "kv_cache_memory_bytes": 4294967296,
+        "generation_config": "vllm",
+        "gpu_memory_utilization": 0.4
+      },
+      "replicas": [
+        {
+          "logical_id": "P6-r0",
+          "url": "http://127.0.0.1:30360",
+          "served_model": "v30-P6-r0",
+          "service_config": {
+            "slot": "P6",
+            "repo": "/ceph_data/ycyoon/work/AgencyBuy/agency-audit",
+            "model_path": "/ceph_data/ycyoon/.cache/huggingface/hub/models--microsoft--phi-4/snapshots/2db69c1c3e91a05d2c64a3185acfbaf36f744e25",
+            "revision": "2db69c1c3e91a05d2c64a3185acfbaf36f744e25",
+            "host": "127.0.0.1",
+            "gpus": [
+              0
+            ],
+            "port": 30360,
+            "served_model": "v30-P6-r0",
+            "max_model_len": 16384,
+            "kv_cache_memory_bytes": 4294967296,
+            "gpu_memory_utilization": 0.4,
+            "minimum_free_mib": 37176,
+            "directory": "/ceph_data/ycyoon/work/AgencyBuy/agency-audit/experiments/v30/runtime/services/P6-r0"
+          }
+        },
+        {
+          "logical_id": "P6-r1",
+          "url": "http://127.0.0.1:30361",
+          "served_model": "v30-P6-r1",
+          "service_config": {
+            "slot": "P6",
+            "repo": "/ceph_data/ycyoon/work/AgencyBuy/agency-audit",
+            "model_path": "/ceph_data/ycyoon/.cache/huggingface/hub/models--microsoft--phi-4/snapshots/2db69c1c3e91a05d2c64a3185acfbaf36f744e25",
+            "revision": "2db69c1c3e91a05d2c64a3185acfbaf36f744e25",
+            "host": "127.0.0.1",
+            "gpus": [
+              1
+            ],
+            "port": 30361,
+            "served_model": "v30-P6-r1",
+            "max_model_len": 16384,
+            "kv_cache_memory_bytes": 4294967296,
+            "gpu_memory_utilization": 0.4,
+            "minimum_free_mib": 37176,
+            "directory": "/ceph_data/ycyoon/work/AgencyBuy/agency-audit/experiments/v30/runtime/services/P6-r1"
+          }
+        },
+        {
+          "logical_id": "P6-r2",
+          "url": "http://127.0.0.1:30362",
+          "served_model": "v30-P6-r2",
+          "service_config": {
+            "slot": "P6",
+            "repo": "/ceph_data/ycyoon/work/AgencyBuy/agency-audit",
+            "model_path": "/ceph_data/ycyoon/.cache/huggingface/hub/models--microsoft--phi-4/snapshots/2db69c1c3e91a05d2c64a3185acfbaf36f744e25",
+            "revision": "2db69c1c3e91a05d2c64a3185acfbaf36f744e25",
+            "host": "127.0.0.1",
+            "gpus": [
+              2
+            ],
+            "port": 30362,
+            "served_model": "v30-P6-r2",
+            "max_model_len": 16384,
+            "kv_cache_memory_bytes": 4294967296,
+            "gpu_memory_utilization": 0.4,
+            "minimum_free_mib": 37176,
+            "directory": "/ceph_data/ycyoon/work/AgencyBuy/agency-audit/experiments/v30/runtime/services/P6-r2"
+          }
+        },
+        {
+          "logical_id": "P6-r3",
+          "url": "http://127.0.0.1:30363",
+          "served_model": "v30-P6-r3",
+          "service_config": {
+            "slot": "P6",
+            "repo": "/ceph_data/ycyoon/work/AgencyBuy/agency-audit",
+            "model_path": "/ceph_data/ycyoon/.cache/huggingface/hub/models--microsoft--phi-4/snapshots/2db69c1c3e91a05d2c64a3185acfbaf36f744e25",
+            "revision": "2db69c1c3e91a05d2c64a3185acfbaf36f744e25",
+            "host": "127.0.0.1",
+            "gpus": [
+              3
+            ],
+            "port": 30363,
+            "served_model": "v30-P6-r3",
+            "max_model_len": 16384,
+            "kv_cache_memory_bytes": 4294967296,
+            "gpu_memory_utilization": 0.4,
+            "minimum_free_mib": 37176,
+            "directory": "/ceph_data/ycyoon/work/AgencyBuy/agency-audit/experiments/v30/runtime/services/P6-r3"
+          }
+        }
+      ],
+      "conditions": [
+        "closed_book",
+        "seed",
+        "unique_full",
+        "window_128",
+        "linked_128",
+        "score_priority_128",
+        "window_256",
+        "linked_256",
+        "score_priority_256",
+        "window_512",
+        "linked_512",
+        "score_priority_512"
+      ]
+    },
+    {
+      "slot": "P7",
+      "model": "Qwen/Qwen2.5-32B-Instruct",
+      "revision": "5ede1c97bbab6ce5cda5812749b4c0bdf79b18dd",
+      "model_path": "/ceph_data/ycyoon/work/AgencyBuy/agency-audit/experiments/v30/model_cache/models--Qwen--Qwen2.5-32B-Instruct/snapshots/5ede1c97bbab6ce5cda5812749b4c0bdf79b18dd",
+      "family": "Qwen",
+      "parameters": 32763876352,
+      "size": "large",
+      "existing_reader": false,
+      "merge_system": false,
+      "stop_token_ids": [
+        151645,
+        151643
+      ],
+      "serving": {
+        "vllm_version": "0.11.2",
+        "dtype": "bfloat16",
+        "tensor_parallel_size": 2,
+        "max_model_len": 16384,
+        "enforce_eager": true,
+        "max_num_seqs": 8,
+        "max_num_batched_tokens": 4096,
+        "seed": 0,
+        "kv_cache_memory_bytes": 4294967296,
+        "generation_config": "vllm",
+        "gpu_memory_utilization": 0.4
+      },
+      "replicas": [
+        {
+          "logical_id": "P7-r0",
+          "url": "http://127.0.0.1:30370",
+          "served_model": "v30-P7-r0",
+          "service_config": {
+            "slot": "P7",
+            "repo": "/ceph_data/ycyoon/work/AgencyBuy/agency-audit",
+            "model_path": "/ceph_data/ycyoon/work/AgencyBuy/agency-audit/experiments/v30/model_cache/models--Qwen--Qwen2.5-32B-Instruct/snapshots/5ede1c97bbab6ce5cda5812749b4c0bdf79b18dd",
+            "revision": "5ede1c97bbab6ce5cda5812749b4c0bdf79b18dd",
+            "host": "127.0.0.1",
+            "gpus": [
+              0,
+              1
+            ],
+            "port": 30370,
+            "served_model": "v30-P7-r0",
+            "max_model_len": 16384,
+            "kv_cache_memory_bytes": 4294967296,
+            "gpu_memory_utilization": 0.4,
+            "minimum_free_mib": 40462,
+            "directory": "/ceph_data/ycyoon/work/AgencyBuy/agency-audit/experiments/v30/runtime/services/P7-r0"
+          }
+        },
+        {
+          "logical_id": "P7-r1",
+          "url": "http://127.0.0.1:30371",
+          "served_model": "v30-P7-r1",
+          "service_config": {
+            "slot": "P7",
+            "repo": "/ceph_data/ycyoon/work/AgencyBuy/agency-audit",
+            "model_path": "/ceph_data/ycyoon/work/AgencyBuy/agency-audit/experiments/v30/model_cache/models--Qwen--Qwen2.5-32B-Instruct/snapshots/5ede1c97bbab6ce5cda5812749b4c0bdf79b18dd",
+            "revision": "5ede1c97bbab6ce5cda5812749b4c0bdf79b18dd",
+            "host": "127.0.0.1",
+            "gpus": [
+              2,
+              3
+            ],
+            "port": 30371,
+            "served_model": "v30-P7-r1",
+            "max_model_len": 16384,
+            "kv_cache_memory_bytes": 4294967296,
+            "gpu_memory_utilization": 0.4,
+            "minimum_free_mib": 40462,
+            "directory": "/ceph_data/ycyoon/work/AgencyBuy/agency-audit/experiments/v30/runtime/services/P7-r1"
+          }
+        }
+      ],
+      "conditions": [
+        "closed_book",
+        "seed",
+        "unique_full",
+        "window_128",
+        "linked_128",
+        "score_priority_128",
+        "window_256",
+        "linked_256",
+        "score_priority_256",
+        "window_512",
+        "linked_512",
+        "score_priority_512"
+      ]
+    },
+    {
+      "slot": "P8",
+      "model": "Qwen/Qwen2.5-72B-Instruct",
+      "revision": "495f39366efef23836d0cfae4fbe635880d2be31",
+      "model_path": "/ceph_data/ycyoon/.cache/huggingface/hub/models--Qwen--Qwen2.5-72B-Instruct/snapshots/495f39366efef23836d0cfae4fbe635880d2be31",
+      "family": "Qwen",
+      "parameters": 72706203648,
+      "size": "large",
+      "existing_reader": false,
+      "merge_system": false,
+      "stop_token_ids": [
+        151645,
+        151643
+      ],
+      "serving": {
+        "vllm_version": "0.11.2",
+        "dtype": "bfloat16",
+        "tensor_parallel_size": 4,
+        "max_model_len": 16384,
+        "enforce_eager": true,
+        "max_num_seqs": 8,
+        "max_num_batched_tokens": 4096,
+        "seed": 0,
+        "kv_cache_memory_bytes": 4294967296,
+        "generation_config": "vllm",
+        "gpu_memory_utilization": 0.4
+      },
+      "replicas": [
+        {
+          "logical_id": "P8-r0",
+          "url": "http://127.0.0.1:30380",
+          "served_model": "v30-P8-r0",
+          "service_config": {
+            "slot": "P8",
+            "repo": "/ceph_data/ycyoon/work/AgencyBuy/agency-audit",
+            "model_path": "/ceph_data/ycyoon/.cache/huggingface/hub/models--Qwen--Qwen2.5-72B-Instruct/snapshots/495f39366efef23836d0cfae4fbe635880d2be31",
+            "revision": "495f39366efef23836d0cfae4fbe635880d2be31",
+            "host": "127.0.0.1",
+            "gpus": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "port": 30380,
+            "served_model": "v30-P8-r0",
+            "max_model_len": 16384,
+            "kv_cache_memory_bytes": 4294967296,
+            "gpu_memory_utilization": 0.4,
+            "minimum_free_mib": 43885,
+            "directory": "/ceph_data/ycyoon/work/AgencyBuy/agency-audit/experiments/v30/runtime/services/P8-r0"
+          }
+        }
+      ],
+      "conditions": [
+        "closed_book",
+        "seed",
+        "unique_full",
+        "window_128",
+        "linked_128",
+        "score_priority_128",
+        "window_256",
+        "linked_256",
+        "score_priority_256",
+        "window_512",
+        "linked_512",
+        "score_priority_512"
+      ]
+    },
+    {
+      "slot": "Q14",
+      "model": "Qwen/Qwen2.5-14B-Instruct",
+      "revision": "cf98f3b3bbb457ad9e2bb7baf9a0125b6b88caa8",
+      "model_path": "/ceph_data/ycyoon/.cache/huggingface/hub/models--Qwen--Qwen2.5-14B-Instruct/snapshots/cf98f3b3bbb457ad9e2bb7baf9a0125b6b88caa8",
+      "family": "Qwen",
+      "parameters": 14770033664,
+      "size": "small",
+      "existing_reader": true,
+      "merge_system": false,
+      "stop_token_ids": [
+        151645,
+        151643
+      ],
+      "serving": {
+        "vllm_version": "0.11.2",
+        "dtype": "bfloat16",
+        "tensor_parallel_size": 1,
+        "max_model_len": 16384,
+        "enforce_eager": true,
+        "max_num_seqs": 8,
+        "max_num_batched_tokens": 4096,
+        "seed": 0,
+        "kv_cache_memory_bytes": 4294967296,
+        "generation_config": "vllm",
+        "gpu_memory_utilization": 0.4
+      },
+      "replicas": [
+        {
+          "logical_id": "Q14-r0",
+          "url": "http://127.0.0.1:30390",
+          "served_model": "v30-Q14-r0",
+          "service_config": {
+            "slot": "Q14",
+            "repo": "/ceph_data/ycyoon/work/AgencyBuy/agency-audit",
+            "model_path": "/ceph_data/ycyoon/.cache/huggingface/hub/models--Qwen--Qwen2.5-14B-Instruct/snapshots/cf98f3b3bbb457ad9e2bb7baf9a0125b6b88caa8",
+            "revision": "cf98f3b3bbb457ad9e2bb7baf9a0125b6b88caa8",
+            "host": "127.0.0.1",
+            "gpus": [
+              0
+            ],
+            "port": 30390,
+            "served_model": "v30-Q14-r0",
+            "max_model_len": 16384,
+            "kv_cache_memory_bytes": 4294967296,
+            "gpu_memory_utilization": 0.4,
+            "minimum_free_mib": 37387,
+            "directory": "/ceph_data/ycyoon/work/AgencyBuy/agency-audit/experiments/v30/runtime/services/Q14-r0"
+          }
+        },
+        {
+          "logical_id": "Q14-r1",
+          "url": "http://127.0.0.1:30391",
+          "served_model": "v30-Q14-r1",
+          "service_config": {
+            "slot": "Q14",
+            "repo": "/ceph_data/ycyoon/work/AgencyBuy/agency-audit",
+            "model_path": "/ceph_data/ycyoon/.cache/huggingface/hub/models--Qwen--Qwen2.5-14B-Instruct/snapshots/cf98f3b3bbb457ad9e2bb7baf9a0125b6b88caa8",
+            "revision": "cf98f3b3bbb457ad9e2bb7baf9a0125b6b88caa8",
+            "host": "127.0.0.1",
+            "gpus": [
+              1
+            ],
+            "port": 30391,
+            "served_model": "v30-Q14-r1",
+            "max_model_len": 16384,
+            "kv_cache_memory_bytes": 4294967296,
+            "gpu_memory_utilization": 0.4,
+            "minimum_free_mib": 37387,
+            "directory": "/ceph_data/ycyoon/work/AgencyBuy/agency-audit/experiments/v30/runtime/services/Q14-r1"
+          }
+        },
+        {
+          "logical_id": "Q14-r2",
+          "url": "http://127.0.0.1:30392",
+          "served_model": "v30-Q14-r2",
+          "service_config": {
+            "slot": "Q14",
+            "repo": "/ceph_data/ycyoon/work/AgencyBuy/agency-audit",
+            "model_path": "/ceph_data/ycyoon/.cache/huggingface/hub/models--Qwen--Qwen2.5-14B-Instruct/snapshots/cf98f3b3bbb457ad9e2bb7baf9a0125b6b88caa8",
+            "revision": "cf98f3b3bbb457ad9e2bb7baf9a0125b6b88caa8",
+            "host": "127.0.0.1",
+            "gpus": [
+              2
+            ],
+            "port": 30392,
+            "served_model": "v30-Q14-r2",
+            "max_model_len": 16384,
+            "kv_cache_memory_bytes": 4294967296,
+            "gpu_memory_utilization": 0.4,
+            "minimum_free_mib": 37387,
+            "directory": "/ceph_data/ycyoon/work/AgencyBuy/agency-audit/experiments/v30/runtime/services/Q14-r2"
+          }
+        },
+        {
+          "logical_id": "Q14-r3",
+          "url": "http://127.0.0.1:30393",
+          "served_model": "v30-Q14-r3",
+          "service_config": {
+            "slot": "Q14",
+            "repo": "/ceph_data/ycyoon/work/AgencyBuy/agency-audit",
+            "model_path": "/ceph_data/ycyoon/.cache/huggingface/hub/models--Qwen--Qwen2.5-14B-Instruct/snapshots/cf98f3b3bbb457ad9e2bb7baf9a0125b6b88caa8",
+            "revision": "cf98f3b3bbb457ad9e2bb7baf9a0125b6b88caa8",
+            "host": "127.0.0.1",
+            "gpus": [
+              3
+            ],
+            "port": 30393,
+            "served_model": "v30-Q14-r3",
+            "max_model_len": 16384,
+            "kv_cache_memory_bytes": 4294967296,
+            "gpu_memory_utilization": 0.4,
+            "minimum_free_mib": 37387,
+            "directory": "/ceph_data/ycyoon/work/AgencyBuy/agency-audit/experiments/v30/runtime/services/Q14-r3"
+          }
+        }
+      ],
+      "conditions": [
+        "closed_book"
+      ]
+    }
+  ],
+  "questions": 4500,
+  "dataset_counts": {
+    "hotpot": 1500,
+    "2wiki": 1500,
+    "musique": 1500
+  },
+  "dataset_weights": {
+    "hotpot": 0.3333333333333333,
+    "2wiki": 0.3333333333333333,
+    "musique": 0.3333333333333333
+  },
+  "allowances": [
+    128,
+    256,
+    512
+  ],
+  "decoding": {
+    "temperature": 0,
+    "seed": 42,
+    "max_tokens": 96,
+    "add_special_tokens": false,
+    "max_retries": 3
+  },
+  "statistics": {
+    "bootstrap_draws": 10000,
+    "bootstrap_seed": 20261112,
+    "confidence_level": 0.95,
+    "interval": "percentile",
+    "permutation": "exact_reader_labels",
+    "exact_max_n": 9,
+    "monte_carlo_draws": 200000,
+    "monte_carlo_seed": 20261112,
+    "ties": "average_rank",
+    "comparison_tolerance": 1e-12,
+    "alpha": 0.05,
+    "H1": "Spearman(C,F)>0",
+    "H2": "Spearman(C,X)>0",
+    "H2_confirmatory_only_after_H1_rejection": true,
+    "excluded_existing_readers": [
+      "llama8",
+      "qwen7",
+      "qwen14"
+    ],
+    "B_slots": [
+      "P1",
+      "P3",
+      "P5"
+    ],
+    "B_condition": "any F interval lower bound > 0",
+    "route_if_A_and_B": "Q1",
+    "route_otherwise": "APPLIED_INTELLIGENCE"
+  },
+  "old_prediction_sources": {
+    "llama8_F_X": "experiments/v28/results/followup/scored.jsonl",
+    "qwen7_F_X": "experiments/v28/results/followup/scored.jsonl",
+    "qwen14_F_X": "experiments/v29/results/scored.jsonl",
+    "llama8_C": "experiments/v27/results/test/scored.jsonl",
+    "qwen7_C": "experiments/v27/results/test/scored.jsonl",
+    "qwen14_C": "v30/Q14/closed_book"
+  },
+  "protocol_text": "# Prospective reader-panel test\n\n## Scope and immutable inputs\n\nTest the reader-capability association suggested by the three earlier readers. Those readers generated the hypotheses and are excluded from both confirmatory tests. Reuse exactly the 4,500 confirmatory questions: 1,500 each from HotpotQA, 2WikiMultiHopQA, and MuSiQue. Freeze the original 20 retrieval slots, Qwen7 seed, source rendering (`[src_<16 hex>] {title}\\n{text}\\n`), reader instructions, parser, normalization, aliases, and exact-match (EM) and F1 scorers. No retrieval or selector reruns, new methods, manuscript changes, or supplementary-material changes are permitted.\n\nAll new artifacts reside under V30. No evaluation inference precedes this plan's Git commit. New-reader scores remain locked until all planned inference and input/output audits pass. Do not change readers, conditions, metrics, tests, weights, or random seeds in response to outcomes. Record all deviations, failures, and retries. P9 is disabled because the user specified no API reader.\n\n## 3.1 Reader panel\n\n| Slot | Official model | Revision | Parameters | Family / size | TP / max length | System adapter | Stops |\n|---|---|---|---:|---|---|---|---|\n| P1 | meta-llama/Llama-3.3-70B-Instruct | `6f6073b423013f6a7d4d9f39144961bfbfbc386b` | 70,553,706,496 | Llama / large | 4 / 16,384 | Native system | [128001, 128008, 128009] |\n| P2 | google/gemma-2-9b-it | `11c9b309abf73637e4b6f9a3fa1e92e615547819` | 9,241,705,984 | Gemma / small | 1 / 8,192 | Merged into user | [1, 107] |\n| P3 | google/gemma-2-27b-it | `aaf20e6b9f4c0fcf043f6fb2a2068419086d77b0` | 27,227,128,320 | Gemma / large | 2 / 8,192 | Merged into user | [1, 107] |\n| P4 | mistralai/Mistral-7B-Instruct-v0.3 | `c170c708c41dac9275d15a8fff4eca08d52bab71` | 7,248,023,552 | Mistral / small | 1 / 16,384 | Native system | [2] |\n| P5 | mistralai/Mistral-Small-24B-Instruct-2501 | `9527884be6e5616bdd54de542f9ae13384489724` | 23,572,403,200 | Mistral / large | 1 / 16,384 | Native system | [2] |\n| P6 | microsoft/phi-4 | `2db69c1c3e91a05d2c64a3185acfbaf36f744e25` | 14,659,507,200 | Phi / small | 1 / 16,384 | Native system | [100257, 100265] |\n| P7 | Qwen/Qwen2.5-32B-Instruct | `5ede1c97bbab6ce5cda5812749b4c0bdf79b18dd` | 32,763,876,352 | Qwen / large | 2 / 16,384 | Native system | [151645, 151643] |\n| P8 | Qwen/Qwen2.5-72B-Instruct | `495f39366efef23836d0cfae4fbe635880d2be31` | 72,706,203,648 | Qwen / large | 4 / 16,384 | Native system | [151645, 151643] |\n\nThe authorized primary/fallback pairs are P1 Llama-3.3-70B-Instruct / Llama-3.1-70B-Instruct; P2 gemma-2-9b-it / gemma-3-12b-it; P3 gemma-2-27b-it / gemma-3-27b-it; P4 Mistral-7B-Instruct-v0.3 / Mistral-Nemo-Instruct-2407; P5 Mistral-Small-24B-Instruct-2501 / Mistral-Small-Instruct-2409; P6 phi-4 / Phi-3-medium-128k-instruct; P7 Qwen2.5-32B-Instruct and P8 Qwen2.5-72B-Instruct have no fallback. Official namespaces and immutable revisions appear above and in `plan.json`.\n\nLarge means at least 20 billion parameters. A primary may be replaced only for denied repository access, inability to serve unquantized bfloat16 with vLLM 0.11.2, or a model context limit below the longest native unique-full input plus 96 tokens. Cache absence and busy GPUs are not exclusions. The Gemma pair must use the same generation. Qualification uses tokenizer calculations over all 4,500 inputs and development-only checks of loading, template, stops, and client/server prompt-token agreement. No development response is compared to an answer. At least seven open readers must qualify before commitment; otherwise stop without committing. Quantization is prohibited. Increase tensor parallelism only as needed for fit and record it.\n\nThe qualified panel and configuration are fixed by this commit. Execute new readers in increasing slot order, then the existing Qwen14 closed-book addition. Do not add P9 later. An API reader would require an explicitly authorized dated snapshot and disabled reasoning, neither of which is applicable here. Changes outside these rules require stopping and reporting.\n\n## 3.2 Conditions\n\nEach new open reader receives all 4,500 questions in 12 conditions (54,000 logical records): closed_book; seed; unique_full; and window, linked, and score_priority at allowances 128, 256, and 512. The per-question order is the three unbudgeted conditions followed by ascending allowance, with window, linked, score_priority in that order. Unique-full retains only the first occurrence of each exact corpus passage ID. Closed-book reuses the confirmatory implementation, including answering the two upstream-failure questions. Context-dependent conditions retain those two questions as failures in the denominator. The three invalid-seed fallback questions follow the archived implementation.\n\nAdd only 4,500 closed-book records for the existing Qwen14. No other condition for an existing reader is regenerated. P9, if it had been authorized, would receive only the three unbudgeted conditions; it is absent from this plan.\n\n## 3.3 Rendering, caps, decoding, and interruption recovery\n\nUse the native chat template with system and user messages and `add_generation_prompt=True`. Only when the template rejects the system role, concatenate system instructions, one blank line, and user content as a single user turn. Record this adapter per reader. Keep the reader instructions and evidence text unchanged. For new readers, this capability-based adapter implements the task's rule rather than the archived helper's model-name heuristic; the archived helper itself is unchanged.\n\nThe complete prompt cap is `B_r(q;b)=T_r(q,S0)+b`, including titles, identifiers, instructions, and template tokens. Reuse the archived expansion operators and passage scores. Retain every seed segment, scan candidates in their fixed priority order, skip nonfitting candidates and continue, render in source order, and do not trim text. The internal archived name `rerank` is reported as `score_priority`.\n\nServe vLLM 0.11.2 with unquantized bfloat16, temperature 0, request seed 42, at most 96 new tokens, and server-side `add_special_tokens=false`. Stop IDs are the union of generation-config EOS IDs, tokenizer EOS, and special termination tokens in a completed native assistant turn. Record the exact IDs and tokenizer hashes. Default serving settings are maximum model length 16,384, TP=1, eager mode, at most eight sequences, 4,096 batched tokens, and model initialization seed 0. Only TP, KV cache allocation, and maximum model length for models not supporting 16,384 may differ. Complete replica configurations are in `plan.json`.\n\nUse the 4 NVIDIA RTX PRO 6000 Blackwell Max-Q Workstation Edition devices of local host nlp (server 130) as the serving pool. Use the qualified tensor-parallel configuration for each reader and partition the four devices into disjoint replicas. This uses the full selected pool during evaluation while retaining the qualified hardware configuration and slot order. Qualification uses one replica and development questions three and four from the archived smoke set, preserving the earlier host's responses to questions one and two. P5 uses previously unused questions five and six after a pre-plan client/server tokenizer mismatch; its failed audit response is retained and never regenerated. Previously qualified readers undergo offline revalidation of their saved prompt hashes and token counts. The user requested migration from host 15 after its operating system was reinstalled; no evaluation inference preceded the migration. Do not infer different new readers concurrently. Each reader/question is assigned by SHA-256 of its UTF-8 episode ID modulo that reader's replica count; all conditions remain on that logical replica. Exact prompt reuse on the same replica is allowed.\n\nRetain the archived local-server `gpu_memory_utilization=0.40` setting from V28/V29. KV cache capacity is fixed explicitly in bytes for each reader; vLLM 0.11.2 uses the utilization fraction only for its initial free-memory check when explicit KV bytes are supplied. The separate launch check requires enough free memory for the unquantized weights and working-memory allowance before starting a replica.\n\nPersist each raw response before parsing; persist each attempt before sending; write immutable condition records with SHA-256 checksums and file/directory fsync on shared Ceph. Initial request plus at most three retries means at most four attempts across restarts. Retry only requests without a saved response, and pause for service recovery between unsuccessful attempts. Preserve empty, incorrect, length-stopped, and audit-failing saved responses. Empty responses and final failures score zero. An in-flight response that was not durably saved may need a retry. A restart preserves the logical replica and exact configuration but creates a recorded physical boot/process epoch. Conditions spanning epochs are reported; completed responses are never regenerated to obtain a single epoch. This interruption policy does not change scientific conditions or retry limits.\n\n## 3.4 Estimands\n\nAll aggregate scores are macro EM percentages with equal one-third weights for the three datasets. For reader r: `C_r` is closed-book EM; `F_r` is unique-full EM minus seed EM; `X_r` is the mean EM of the nine expansion conditions minus seed EM. Obtain 95% percentile intervals for F, X, and their component contrasts from 10,000 dataset-stratified paired question bootstrap samples, seed 20261112. Preserve every reader and condition together within a sampled question. Use common bootstrap draws for related contrasts and between-reader comparisons.\n\nFor descriptive existing-reader results, use context-control-follow-up predictions (V28) for Llama8/Qwen7 F and X and reader/rendering predictions (V29) for Qwen14 F and X. Use confirmatory (V27) closed-book predictions for Llama8/Qwen7 C and the V30 closed-book addition for Qwen14 C. Mark these mixed executions in every relevant table.\n\n## 3.5 Confirmatory tests\n\nH1 is the one-sided Spearman association `rho(C,F)>0` across all qualified new readers (including P9 only if present in the plan). H2 is `rho(C,X)>0` across new open readers. Exclude Llama8, Qwen7, and Qwen14 from both tests.\n\nUse average ranks for ties and a reader-label permutation test. For n<=9 enumerate all n! permutations and compute p as the fraction whose correlation is at least the observed correlation, with tolerance 1e-12. For n>9 use 200,000 Monte Carlo permutations, seed 20261112. The fixed significance level is 0.05. Interpret H2 as confirmatory only if H1 is significant; otherwise report H2 descriptively. A constant rank vector gives an undefined correlation, reported as null with p=1 and no rejection; never remove a reader to avoid this case.\n\n## 3.6 Decision\n\nA is true exactly when the H1 one-sided exact p<=0.05. B is true exactly when at least one non-Qwen large open reader in slots P1, P3, or P5 has F's 95% interval lower bound strictly above zero. If none of these slots is present, B is false. `ROUTE=Q1` if both A and B are true; otherwise `ROUTE=APPLIED_INTELLIGENCE`. No sensitivity result changes this rule. `DECISION.md` contains only the values of A and B, ROUTE, and the plan commit hash, without recommendations.\n\n## 3.7 Prespecified descriptive sensitivities\n\n1. Within each dataset sort UTF-8 episode IDs by their SHA-256 digest; first 750 form A and remaining 750 form B. Correlate C from A with F/X from B, then swap halves.\n2. Replace capability by unique-full EM from A in the split-half analysis, and repeat with the halves swapped.\n3. Replace capability by log10(parameter count), open readers only.\n4. Include the three existing readers in the associations, marking their mixed executions.\n5. Leave out one model family at a time.\n6. Report Kendall tau.\n7. Repeat C, F, X, and their associations with F1.\n8. Restrict HotpotQA to its 231 hard sample questions and retain equal dataset weights.\n9. Report paired-bootstrap differences in F and X for adjacent family pairs: Llama8/70; small/large Gemma; small/large Mistral; Qwen7/14/32/72. Mark comparisons involving existing readers as crossing executions.\n10. Report rule-specific and allowance-specific expansion-minus-seed contrasts and each reader's linked-minus-window contrast.\n11. Report intervals for rho from the paired question bootstrap, with any undefined bootstrap correlations counted and disclosed.\n\nAll sensitivities are descriptive and do not enter the decision. Do not foreground favorable sensitivities if the confirmatory result is unfavorable.\n\n## Stages, gates, outputs, and stopping\n\nCommit `PLAN.md` and `plan.json` before evaluation inference; push only a separate `reader-panel` branch if authorized repository access permits. Preserve the public default branch and the manuscript's pinned commit. Put the plan commit hash and time in every later manifest.\n\nStage 1 regenerates and matches all 45,000 archived Qwen7 seed/expansion prompt hashes and rescores archived Qwen14 predictions to reproduce Table D1 EM and F1. Stop on any mismatch. Then build native inputs and audit caps, seed retention, intact spans, source order, P7/P8 equality to archived Qwen7 seed/expansion/unique-full prompt hashes and lengths, failure/fallback handling, and input+96 within maximum model length. Record mean lengths, added segments, and allowance use.\n\nStage 2 executes the fixed slot order and records GPU types/counts, TP, software version, replica assignments, responses, file hashes, empty/length finishes, reuse, and failures. Stop on any count or prompt-token mismatch, or when final no-response failures exceed 1% of that reader's planned logical condition records after retries; the two known upstream failures are reported separately. A transport outage pauses work without changing the panel or resetting retries.\n\nOnly after every planned reader and both audits pass may Stage 3 unlock scoring. Produce all question-level scores, `results/reader_overview.csv`, `results/tests.json`, all eleven sensitivities, and a two-panel `results/fig_capability.pdf` plotting C against F and X with intervals, family markers, and distinct existing-reader markers.\n\nStage 4 writes `REPORT.md` and `DECISION.md` and stops. The report includes panel/revisions, serving settings, audits, overview, tests, sensitivities, deviations, failures, and retries. State that these reused questions support a prospective test on new readers, not independent replication on new questions, and that the reader panel is not randomly sampled and same-family readers are dependent. Do not proceed to selectors, new methods, or manuscript revision.\n\nStop and report if fewer than seven readers qualify, an out-of-protocol panel change is needed, replay or input/output auditing fails, final failures exceed 1%, or the task genuinely conflicts with repository practice. Record interruption-related pauses separately from scientific stopping conditions.\n\nTokenizer construction and all scientific stages use the serving environment: Transformers 4.57.6 and tokenizers 0.22.2. A pre-plan development check exposed different tokenization under the former coordinator's Transformers 5.8.1. Its diagnostic evidence is retained. The 4,500-question tokenizer length audits were recomputed before commitment, without inference or scoring.\n",
+  "qualification_sha256": "1334c09b0b07da1054eba06c24ec79be56063e5653f161a189aa2a6242bb0e13",
+  "panel_selection": {
+    "evaluation_inference_requests": 0,
+    "precommit": true,
+    "priorities": {
+      "P1": 0,
+      "P2": 0,
+      "P3": 0,
+      "P4": 0,
+      "P5": 0,
+      "P6": 0,
+      "P7": 0,
+      "P8": 0
+    },
+    "reasons": {
+      "P2": "Recheck the default Gemma 2 model on the user-selected Blackwell host before deciding availability; the previous H100 softcapping failure is preserved.",
+      "P3": "Recheck the default Gemma 2 generation together with P2 after the pre-plan host migration."
+    }
+  },
+  "implementation_sha256": {
+    "analyze.py": "7b34de4db05fb7a61eed7b323d54ce7cd42ab7bc4892bb05b7e683f8a8bc4930",
+    "audit_outputs.py": "e5f4f11d801f1a95ee1e75b6cdf112536dc9e3c5d8c1f25eab8c60d231ead9ea",
+    "build_plan.py": "cbbe4c09011633221febb4ff93422296bbcd744abc5e589eb056313ed833d56d",
+    "checkpoint.py": "c0e0b20a7f806ec7104dd0c00a6bf04848323257165fb5a275d266a4dac665dd",
+    "commit_plan.py": "8b0f7d472f41a813019997b7db4ee269a25b74d6097cd042966749ac21706333",
+    "download_primary.py": "86132cb876f11d8bbefd1d8c938510eb572f83425e1a987dfe8258cb1ff06c09",
+    "native.py": "7695ac04100361d9da6e3aea0c72a5369f4aafb8a86e46bffba8fd73533fb7ba",
+    "panel.py": "fbe408d51ac12181e86f3f93747f25d88b138bbdb8885cedc5168f1954f92da2",
+    "prepare.py": "2138cad5547d4c22b9c022b5cbd341e220c21f715ad25a3d4ed49659136c2cab",
+    "replay_scores.py": "9cfbc967083696cd95abee0e868230d0ce6585a672c9acc110b65ed809ef390c",
+    "report.py": "65f5c6263921f7f6e8c0f94a909669a7d4ee6b7a6ef5074e828276bbc48542ad",
+    "resume.py": "f658954e1d8d62ffd5bf0b87b28c7b742fbbc817dced14b84cc5d832f3de99ec",
+    "run.py": "fa898a7c855badb0c7d049ab16eee2ed67ec24b5c05c90a192bbb1b485872720",
+    "score_panel.py": "bee7eadd84eb491e401c5f99005cf8b87e62d8b97fb70420c22ffa7574772f93",
+    "services.py": "7c7acb324bb25e704c8b65f9285b15b75f47d099688eea623e9c836703449726",
+    "stage0_access.py": "ed363149ba4ddbdc0d818202d0a256cf7e275d19aa3da3d3ffac6498ec40927a",
+    "stage0_lengths.py": "0afb23866e20b5f8993818aa2f9c854e6344e8cd48e7f4c4f01313fd9914bdd5",
+    "stage0_smoke.py": "da3e7f2b1ab3bee1515eb3611a2361545b7497ef5340880661c858df1a696dee",
+    "statistics.py": "4cbe81faa8079176f5533b997e5f3da2e987bfa2f66cbec257f1f588e305622b"
+  },
+  "qualification_files": {
+    "audit/lengths/P1.json": "dec2c696b7d0d6c99edad6f410c5456aded3924f95cfa3f27203ba242afae74a",
+    "audit/lengths/P2.json": "5ef331477ccc30b1771788c8d9188f9ea5a5ead4819605ec17db5aefc96a7c00",
+    "audit/lengths/P3.json": "7c083f49d01434a3c45ce1b24ccdb0e5825d1dea09112542d04f0d74b3826ab7",
+    "audit/lengths/P4.json": "b097638d68f249757c8f8bb0ad650b1355ce72b1ce59c24ba1d5007e934aeb29",
+    "audit/lengths/P5.json": "1bb567ffa0c9054a5a75997206760e5379943d3f3ecddd41742b6a1101d0cc5c",
+    "audit/lengths/P6.json": "e50a272c201efeb0a85775690ae634320b1337c9a1f0bb1060a3851fcf37b98b",
+    "audit/lengths/P7.json": "51c72e924e610e9877f5d4658fe1e7670b8e6dbaf18c4f42adbaed83a2c66bea",
+    "audit/lengths/P8.json": "5bb06fe93945791e38e1eb67ccdb97fb4b1ec71d9eb7530e591d0a379ecd6b89",
+    "audit/serving/P1.json": "06bd148901fc6f48580726bcc0b9beaadda0aaf003a7f9571135a86d856335c2",
+    "audit/serving/P2.json": "362ed62034f7c7818da6ffa7d07303394aa036aca09692d12c653ee9cf439b0e",
+    "audit/serving/P3.json": "815336c9e28c27bd4effee3d4dcd2710bb937179cd2c67d584de074ae360a8e8",
+    "audit/serving/P4.json": "eea0251583d562e82e1d77863833ce942f4d1356a95a944e7337865e339b34be",
+    "audit/serving/P5.json": "a30be16463038e8082a337753e5e53f308f394ef7bf2b82fae769592d6feed8c",
+    "audit/serving/P6.json": "31b8b0513fd447af611b7ceaa2d58f3ef23434a4828e15e6e4f747496e6317d6",
+    "audit/serving/P7.json": "5e611cfb923b6a3aec5330a915ffbca25a2bd3af8a139d36bf372706a931e51c",
+    "audit/serving/P8.json": "28c9d018ea79b131583b880c699c7cbeac06f560f0df15ad9b376daa2121c5bd",
+    "audit/serving_revalidation/P1.json": "d6a3ce2f7e27452593cbe3b63ee636d0c296fd3f407171cc0476dfd56ca0e474",
+    "audit/serving_revalidation/P2.json": "453b9e06a179b601e1c0313429d7658f792fcea1d48e9ca322d3304c63e38a5d",
+    "audit/serving_revalidation/P3.json": "54c03aeb6ae3de01f22b49ea4583371afeaa425b510c552dcf9cdbeb7188b4df",
+    "audit/serving_revalidation/P4.json": "23e92faa12b5c4de87a7b1564b289605f3f2bde8c9f0a0b5afd2c216f449d16b"
+  },
+  "pre_inference_checkpoint_audit_sha256": "e72338841969778a4d9ee7965664466a5d4ae9111b8b0be0462cf9f556219f09"
+}
